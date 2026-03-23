@@ -1,0 +1,417 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Memorial Dark Theme - Base Colors */
+  --background: #000000;
+  --foreground: #e8e8e8;
+  
+  /* Phase Colors */
+  --phase-1: #3b4c5c; /* 1918-1933: Desaturated blue-gray */
+  --phase-2: #8b1a1a; /* 1933-1939: Deep blood red */
+  --phase-3: #1a0a0a; /* 1939-1945: Near-black with crimson */
+  --phase-3-accent: #4a1515; /* Crimson accent */
+  
+  /* Memorial Accents */
+  --rust: #8b4513;
+  --aged-metal: #6b5b4f;
+  --sepia: #704214;
+  --warning-amber: #d97706;
+  
+  /* Card & UI */
+  --card: #0a0a0a;
+  --card-foreground: #e8e8e8;
+  --popover: #0a0a0a;
+  --popover-foreground: #e8e8e8;
+  
+  /* Primary & Secondary */
+  --primary: #e8e8e8;
+  --primary-foreground: #000000;
+  --secondary: #1a1a1a;
+  --secondary-foreground: #e8e8e8;
+  
+  /* Muted */
+  --muted: #1a1a1a;
+  --muted-foreground: #888888;
+  
+  /* Accent */
+  --accent: #8b1a1a;
+  --accent-foreground: #e8e8e8;
+  
+  /* Destructive */
+  --destructive: #8b1a1a;
+  --destructive-foreground: #e8e8e8;
+  
+  /* Borders & Inputs */
+  --border: #2a2a2a;
+  --input: #1a1a1a;
+  --ring: #8b1a1a;
+  
+  /* Radius */
+  --radius: 0.25rem;
+  
+  /* Grain opacity per phase */
+  --grain-opacity-1: 0.02;
+  --grain-opacity-2: 0.05;
+  --grain-opacity-3: 0.08;
+}
+
+@theme inline {
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+  --font-serif: var(--font-crimson), 'Georgia', serif;
+  --font-mono: 'Geist Mono', monospace;
+  --font-body: var(--font-source-serif), 'Georgia', serif;
+  
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  
+  --color-phase-1: var(--phase-1);
+  --color-phase-2: var(--phase-2);
+  --color-phase-3: var(--phase-3);
+  --color-phase-3-accent: var(--phase-3-accent);
+  --color-rust: var(--rust);
+  --color-aged-metal: var(--aged-metal);
+  --color-sepia: var(--sepia);
+  --color-warning-amber: var(--warning-amber);
+  
+  --radius-sm: calc(var(--radius) - 2px);
+  --radius-md: var(--radius);
+  --radius-lg: calc(var(--radius) + 2px);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    font-size: 16px;
+    @media (min-width: 1024px) {
+      font-size: 18px;
+    }
+    @media (min-width: 1440px) {
+      font-size: 20px;
+    }
+  }
+  body {
+    @apply bg-background text-foreground;
+    line-height: 1.8;
+  }
+}
+
+/* Film Grain Overlay - Animated */
+@keyframes grain {
+  0%, 100% { transform: translate(0, 0); }
+  10% { transform: translate(-5%, -10%); }
+  20% { transform: translate(-15%, 5%); }
+  30% { transform: translate(7%, -25%); }
+  40% { transform: translate(-5%, 25%); }
+  50% { transform: translate(-15%, 10%); }
+  60% { transform: translate(15%, 0%); }
+  70% { transform: translate(0%, 15%); }
+  80% { transform: translate(3%, 35%); }
+  90% { transform: translate(-10%, 10%); }
+}
+
+.film-grain {
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  right: -50%;
+  bottom: -50%;
+  width: 200%;
+  height: 200%;
+  background: transparent url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E") repeat;
+  opacity: var(--current-grain-opacity, 0.04);
+  pointer-events: none;
+  z-index: 9999;
+  animation: grain 8s steps(10) infinite;
+  mix-blend-mode: overlay;
+}
+
+/* Grain intensity by phase */
+.phase-bg-1 .film-grain,
+.phase-bg-1 ~ .film-grain {
+  --current-grain-opacity: 0.02;
+}
+
+.phase-bg-2 .film-grain,
+.phase-bg-2 ~ .film-grain {
+  --current-grain-opacity: 0.05;
+}
+
+.phase-bg-3 .film-grain,
+.phase-bg-3 ~ .film-grain {
+  --current-grain-opacity: 0.08;
+}
+
+/* Phase 4: Reduced grain - liberation brings some light */
+.phase-bg-4 .film-grain,
+.phase-bg-4 ~ .film-grain {
+  --current-grain-opacity: 0.04;
+}
+
+/* Vignette Effect - Enhanced */
+.vignette {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9998;
+  background: radial-gradient(
+    ellipse at center,
+    transparent 0%,
+    transparent 35%,
+    rgba(0, 0, 0, 0.25) 60%,
+    rgba(0, 0, 0, 0.6) 85%,
+    rgba(0, 0, 0, 0.85) 100%
+  );
+}
+
+/* Stronger vignette for genocide phase */
+.phase-bg-3 ~ .vignette {
+  background: radial-gradient(
+    ellipse at center,
+    transparent 0%,
+    transparent 25%,
+    rgba(0, 0, 0, 0.35) 50%,
+    rgba(0, 0, 0, 0.7) 75%,
+    rgba(0, 0, 0, 0.95) 100%
+  );
+}
+
+/* Lighter vignette for liberation phase - darkness lifting */
+.phase-bg-4 ~ .vignette {
+  background: radial-gradient(
+    ellipse at center,
+    transparent 0%,
+    transparent 40%,
+    rgba(0, 0, 0, 0.2) 65%,
+    rgba(0, 0, 0, 0.5) 85%,
+    rgba(0, 0, 0, 0.75) 100%
+  );
+}
+
+/* Aged Paper Texture */
+.paper-texture {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Cfilter id='paper'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.04' numOctaves='5'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23paper)' opacity='0.03'/%3E%3C/svg%3E");
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2a2a2a;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #3a3a3a;
+}
+
+/* Timeline Spine Animation */
+@keyframes drawLine {
+  from {
+    stroke-dashoffset: 1000;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Phase Background Transitions - Enhanced with parallax-ready layers */
+.phase-bg-1 {
+  background: 
+    linear-gradient(180deg, #000000 0%, #0d1318 50%, #0a0f14 100%);
+  position: relative;
+}
+
+.phase-bg-1::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 0%, rgba(59, 76, 92, 0.05) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.phase-bg-2 {
+  background: 
+    linear-gradient(180deg, #0a0f14 0%, #1a0808 50%, #200a0a 100%);
+  position: relative;
+}
+
+.phase-bg-2::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 0%, rgba(139, 26, 26, 0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.phase-bg-3 {
+  background: 
+    linear-gradient(180deg, #200a0a 0%, #1a0a0a 50%, #0a0505 100%);
+  position: relative;
+}
+
+.phase-bg-3::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: 
+    radial-gradient(ellipse at 50% 0%, rgba(139, 26, 26, 0.12) 0%, transparent 60%),
+    radial-gradient(ellipse at 30% 50%, rgba(74, 21, 21, 0.08) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+/* Phase 4: Liberation & Justice - Dark gray, lifting darkness */
+.phase-bg-4 {
+  background: 
+    linear-gradient(180deg, #0a0505 0%, #1a1a1a 30%, #1e1e1e 70%, #1a1a1a 100%);
+  position: relative;
+}
+
+.phase-bg-4::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: 
+    radial-gradient(ellipse at 50% 0%, rgba(74, 85, 104, 0.08) 0%, transparent 60%),
+    radial-gradient(ellipse at 70% 30%, rgba(74, 85, 104, 0.05) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+/* Glow Effects */
+.glow-phase-1 {
+  box-shadow: 0 0 20px rgba(59, 76, 92, 0.3);
+}
+
+.glow-phase-2 {
+  box-shadow: 0 0 25px rgba(139, 26, 26, 0.4);
+}
+
+.glow-phase-3 {
+  box-shadow: 0 0 35px rgba(139, 26, 26, 0.6);
+}
+
+.glow-phase-4 {
+  box-shadow: 0 0 25px rgba(74, 85, 104, 0.4);
+}
+
+/* Typography */
+.font-display {
+  font-family: 'Crimson Text', Georgia, serif;
+  font-weight: 600;
+}
+
+.font-body {
+  font-family: 'Source Serif Pro', Georgia, serif;
+  line-height: 1.8;
+}
+
+/* Quote styling - Enhanced with large marks */
+.quote-marks {
+  position: relative;
+}
+
+.quote-marks::before {
+  content: '"';
+  font-size: 4rem;
+  font-family: Georgia, serif;
+  line-height: 0;
+  vertical-align: -0.5em;
+  opacity: 0.2;
+  color: inherit;
+}
+
+/* Scratched Metal Effect */
+.scratched-metal {
+  background-image: 
+    linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.02) 50%, transparent 100%),
+    linear-gradient(0deg, transparent 0%, rgba(0,0,0,0.1) 50%, transparent 100%);
+}
+
+/* Selection styling */
+::selection {
+  background: rgba(139, 26, 26, 0.5);
+  color: #e8e8e8;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .film-grain {
+    animation: none;
+  }
+  
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Focus styles for accessibility */
+:focus-visible {
+  outline: 2px solid var(--phase-2);
+  outline-offset: 2px;
+}
+
+/* Tabular numbers for year displays */
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Parallax container */
+.parallax-container {
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+.parallax-slow {
+  will-change: transform;
+}
+
+/* Loading shimmer for images */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.loading-shimmer {
+  background: linear-gradient(
+    90deg,
+    #1a1a1a 0%,
+    #2a2a2a 50%,
+    #1a1a1a 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}

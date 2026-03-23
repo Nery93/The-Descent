@@ -1,0 +1,14 @@
+# https://www.robotstxt.org/robotstxt.html
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://the-descent.vercel.app/sitemap.xml
+
+# Block common bot traps
+Disallow: /api/
+Disallow: /_next/
+Disallow: /static/
+
+# Crawl-delay for polite crawling
+Crawl-delay: 1

@@ -1,0 +1,248 @@
+'use client';
+
+import { useCountUp } from '@/hooks/use-count-up';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import { useEffect, useRef, useState } from 'react';
+
+interface AnimatedStatProps {
+  end: number;
+  suffix?: string;
+  label: string;
+  delay: number;
+  inView: boolean;
+}
+
+function AnimatedStat({ end, suffix = '', label, delay, inView }: AnimatedStatProps) {
+  const { formattedValue } = useCountUp({
+    end,
+    duration: 2500,
+    delay,
+    easing: 'easeOut',
+    enabled: inView,
+  });
+
+  return (
+    <div className="text-center">
+      <div 
+        className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-[#f5f5f5] tabular-nums"
+        style={{ fontVariantNumeric: 'tabular-nums' }}
+      >
+        {formattedValue}{suffix}
+      </div>
+      <div className="text-sm sm:text-base text-[#888] uppercase tracking-wider mt-2">
+        {label}
+      </div>
+    </div>
+  );
+}
+
+export function HeroSection() {
+  const ref = useRef<HTMLDivElement>(null);
+  const [statsInView, setStatsInView] = useState(false);
+  
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ['start start', 'end start'],
+  });
+
+  // Parallax effect - background moves slower than content
+  const backgroundY = useTransform(scrollYProgress, [0, 1], [0, 200]);
+  const contentY = useTransform(scrollYProgress, [0, 0.5], [0, -50]);
+  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
+  const scale = useTransform(scrollYProgress, [0, 0.5], [1, 0.95]);
+
+  // Detect when stats are in view for animation trigger
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setStatsInView(true);
+        }
+      },
+      { threshold: 0.3 }
+    );
+
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
+  // Check for reduced motion preference
+  const prefersReducedMotion = typeof window !== 'undefined' 
+    ? window.matchMedia('(prefers-reduced-motion: reduce)').matches 
+    : false;
+
+  return (
+    <div ref={ref} className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* Background photo with parallax and Ken Burns effect */}
+      <motion.div 
+        className="absolute inset-0 z-0 overflow-hidden"
+        style={{ y: prefersReducedMotion ? 0 : backgroundY }}
+      >
+        {/* Historical photo - Liberation at Bergen-Belsen with Ken Burns zoom */}
+        <motion.div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat scale-100"
+          initial={{ scale: 1 }}
+          animate={{ scale: prefersReducedMotion ? 1 : 1.02 }}
+          transition={{ 
+            duration: 20, 
+            ease: 'linear',
+            repeat: Infinity,
+            repeatType: 'reverse'
+          }}
+          style={{
+            backgroundImage: `url('/events/Hero.jpg')`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+          }}
+        >
+        </motion.div>
+
+        {/* Photo description for context */}
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+          <div className="absolute bottom-32 left-1/2 -translate-x-1/2 text-center opacity-40">
+            <p className="text-sm text-[#888] italic font-serif max-w-md">
+              [Historical Photo: Liberated prisoners behind barbed wire, Bergen-Belsen 1945]
+            </p>
+          </div>
+        </div>
+        
+        {/* Dark overlay for readability - stronger at 75% */}
+        <div className="absolute inset-0 bg-black/75" />
+        
+        {/* Sepia tint for aged effect */}
+        <div className="absolute inset-0 bg-[#704214]/8 mix-blend-overlay" />
+      </motion.div>
+
+      {/* Film grain enhanced */}
+      <div className="absolute inset-0 opacity-[0.03] z-10 pointer-events-none">
+        <svg className="w-full h-full">
+          <defs>
+            <filter id="noise-hero">
+              <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" />
+              <feColorMatrix type="saturate" values="0" />
+            </filter>
+          </defs>
+          <rect width="100%" height="100%" filter="url(#noise-hero)" opacity="0.5" />
+        </svg>
+      </div>
+
+      {/* Vignette enhanced */}
+      <div 
+        className="absolute inset-0 z-10 pointer-events-none"
+        style={{
+          background: 'radial-gradient(ellipse at center, transparent 20%, rgba(0,0,0,0.4) 60%, rgba(0,0,0,0.8) 100%)',
+        }}
+      />
+
+      {/* Content */}
+      <motion.div 
+        style={{ opacity, y: contentY, scale }}
+        className="relative z-20 text-center px-4 max-w-4xl mx-auto"
+      >
+        {/* Warning text */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2, duration: 0.8 }}
+          className="mb-8"
+        >
+          <span className="inline-block px-4 py-2 text-xs uppercase tracking-[0.3em] text-[#8b1a1a] border border-[#8b1a1a]/60 rounded-sm bg-black/30 backdrop-blur-sm">
+            A Digital Memorial
+          </span>
+        </motion.div>
+
+        {/* Main title */}
+        <motion.h1
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.4, duration: 0.8 }}
+          className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-[#e8e8e8] leading-[1.1] mb-6"
+        >
+          <span className="block text-balance">The Descent</span>
+          <span 
+            className="block text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-normal mt-2 opacity-60"
+            style={{ fontVariantNumeric: 'tabular-nums' }}
+          >
+            1918 — 1945
+          </span>
+        </motion.h1>
+
+        {/* Subtitle */}
+        <motion.p
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.6, duration: 0.8 }}
+          className="text-lg sm:text-xl text-[#888] max-w-2xl mx-auto leading-relaxed mb-12 text-balance"
+        >
+          From the ashes of World War I to the liberation of the concentration camps. 
+          A journey through the darkest chapter in human history.
+        </motion.p>
+
+        {/* Animated Stats */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.8, duration: 0.8 }}
+          className="flex flex-col sm:flex-row items-center justify-center gap-8 sm:gap-16 lg:gap-24 max-w-3xl mx-auto mb-16"
+        >
+          <AnimatedStat
+            end={6000000}
+            label="Jews Murdered"
+            delay={0}
+            inView={statsInView}
+          />
+          <div className="hidden sm:block w-[3px] h-20 bg-[#333]" />
+          <AnimatedStat
+            end={27}
+            label="Years"
+            delay={300}
+            inView={statsInView}
+          />
+          <div className="hidden sm:block w-[2px] h-20 bg-[#333]" />
+          <AnimatedStat
+            end={17}
+            label="Key Events"
+            delay={600}
+            inView={statsInView}
+          />
+        </motion.div>
+
+        {/* Scroll indicator */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.2, duration: 0.8 }}
+          className="flex flex-col items-center gap-2"
+        >
+          <span className="text-xs uppercase tracking-[0.2em] text-[#9ca3af]">
+            Scroll to begin
+          </span>
+          <motion.div
+            animate={{ y: [0, 8, 0] }}
+            transition={{ repeat: Infinity, duration: 1.5, ease: 'easeInOut' }}
+          >
+            <svg 
+              className="w-6 h-6 text-[#9ca3af]" 
+              fill="none" 
+              viewBox="0 0 24 24" 
+              stroke="currentColor"
+            >
+              <path 
+                strokeLinecap="round" 
+                strokeLinejoin="round" 
+                strokeWidth={1.5} 
+                d="M19 14l-7 7m0 0l-7-7m7 7V3" 
+              />
+            </svg>
+          </motion.div>
+        </motion.div>
+      </motion.div>
+
+      {/* Bottom gradient fade */}
+      <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-black via-black/80 to-transparent z-20" />
+    </div>
+  );
+}
