@@ -211,8 +211,8 @@ export function GenocideMap() {
               >
                 {/* Base Map */}
                 <Geographies geography={geoUrl}>
-                  {({ geographies }) =>
-                    geographies.map(geo => (
+                  {({ geographies }: { geographies: any[] }) =>
+                    geographies.map((geo: any) => (
                       <Geography
                         key={geo.rsmKey}
                         geography={geo}
