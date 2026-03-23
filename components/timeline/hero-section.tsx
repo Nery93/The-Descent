@@ -21,13 +21,27 @@ function AnimatedStat({ end, suffix = '', label, delay, inView }: AnimatedStatPr
     enabled: inView,
   });
 
+  // Format the final value to know its character width — reserves that space from the start
+  const finalFormatted = end.toLocaleString() + suffix;
+
   return (
     <div className="text-center">
-      <div 
-        className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-[#f5f5f5] tabular-nums"
-        style={{ fontVariantNumeric: 'tabular-nums' }}
-      >
-        {formattedValue}{suffix}
+      <div className="relative inline-block">
+        {/* Ghost element reserves the final width so layout never shifts */}
+        <div
+          className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-bold invisible select-none"
+          style={{ fontVariantNumeric: 'tabular-nums' }}
+          aria-hidden="true"
+        >
+          {finalFormatted}
+        </div>
+        {/* Actual animated counter, absolutely overlaid */}
+        <div
+          className="absolute inset-0 flex items-center justify-center text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-[#f5f5f5] tabular-nums"
+          style={{ fontVariantNumeric: 'tabular-nums' }}
+        >
+          {formattedValue}{suffix}
+        </div>
       </div>
       <div className="text-sm sm:text-base text-[#888] uppercase tracking-wider mt-2">
         {label}
