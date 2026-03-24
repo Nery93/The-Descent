@@ -18,7 +18,7 @@ export function useCountUp({
   duration = 2000,
   delay = 0,
   easing = 'easeOut',
-  formatValue = (v) => Math.round(v).toLocaleString(),
+  formatValue = (v) => Math.round(v).toLocaleString('en-US'),
   enabled = true,
 }: UseCountUpOptions) {
   const [value, setValue] = useState(start);

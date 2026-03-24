@@ -66,10 +66,12 @@ export function EventModal({ event, onClose, onNavigate }: EventModalProps) {
   const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0);
   const [isLightboxOpen, setIsLightboxOpen] = useState(false);
   const [showShareModal, setShowShareModal] = useState(false);
+  const [revealedPhotos, setRevealedPhotos] = useState<Set<number>>(new Set());
 
-  // Reset photo index when event changes
+  // Reset photo index and revealed state when event changes
   useEffect(() => {
     setCurrentPhotoIndex(0);
+    setRevealedPhotos(new Set());
   }, [event?.id]);
 
   // Handle escape key
@@ -148,11 +150,14 @@ export function EventModal({ event, onClose, onNavigate }: EventModalProps) {
               {/* Main Photo */}
               <div
                 className="relative h-full w-full cursor-pointer"
-                onClick={() => setIsLightboxOpen(true)}
+                onClick={() => !currentPhoto.sensitive || revealedPhotos.has(currentPhotoIndex) ? setIsLightboxOpen(true) : undefined}
               >
                 {/* Photo background */}
                 <div
-                  className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+                  className={cn(
+                    "absolute inset-0 bg-cover bg-center bg-no-repeat transition-all duration-300",
+                    currentPhoto.sensitive && !revealedPhotos.has(currentPhotoIndex) && "blur-2xl scale-105"
+                  )}
                   style={{
                     backgroundImage: currentPhoto.src
                       ? `url('${currentPhoto.src}')`
@@ -167,15 +172,38 @@ export function EventModal({ event, onClose, onNavigate }: EventModalProps) {
                   <div className="absolute inset-0 border-[8px] border-[#1a1a1a] opacity-50" />
                   <div className="absolute inset-[8px] bg-gradient-to-b from-[#704214]/5 to-transparent" />
                 </div>
+
+                {/* Sensitive content warning overlay */}
+                {currentPhoto.sensitive && !revealedPhotos.has(currentPhotoIndex) && (
+                  <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/60 z-10">
+                    <div className="flex flex-col items-center gap-4 text-center px-6">
+                      <svg className="w-10 h-10 text-amber-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                      </svg>
+                      <p className="text-amber-400 text-sm uppercase tracking-[0.2em] font-semibold">
+                        Graphic Content
+                      </p>
+                      <p className="text-[#9ca3af] text-sm max-w-xs">
+                        This image contains disturbing historical content that some may find distressing.
+                      </p>
+                      <button
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setRevealedPhotos((prev) => new Set(prev).add(currentPhotoIndex));
+                        }}
+                        className="mt-2 px-5 py-2 text-sm border border-white/30 text-white hover:bg-white/10 transition-colors rounded-sm cursor-pointer"
+                      >
+                        View Image
+                      </button>
+                    </div>
+                  </div>
+                )}
               </div>
 
               {/* Photo caption */}
               <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent p-6 pt-12">
                 <p className="text-base text-[#d1d5db] italic max-w-3xl mx-auto text-center">
                   {currentPhoto.caption}
-                </p>
-                <p className="text-sm text-[#9ca3af] text-center mt-1">
-                  Source: {currentPhoto.source}
                 </p>
               </div>
 
@@ -220,7 +248,7 @@ export function EventModal({ event, onClose, onNavigate }: EventModalProps) {
                         setCurrentPhotoIndex(i);
                       }}
                       className={cn(
-                        'w-20 h-20 rounded-sm overflow-hidden transition-all duration-200 bg-cover bg-center cursor-pointer',
+                        'relative w-20 h-20 rounded-sm overflow-hidden transition-all duration-200 bg-cover bg-center cursor-pointer',
                         i === currentPhotoIndex
                           ? 'border-[3px] border-white opacity-100 scale-105'
                           : 'border-2 border-white/50 opacity-70 hover:opacity-100 hover:border-white'
@@ -231,7 +259,15 @@ export function EventModal({ event, onClose, onNavigate }: EventModalProps) {
                           : `linear-gradient(135deg, ${phaseColor}40, #1a1a1a)`,
                       }}
                       aria-label={`View photo ${i + 1}: ${photo.alt.slice(0, 30)}`}
-                    />
+                    >
+                      {photo.sensitive && !revealedPhotos.has(i) && (
+                        <div className="absolute inset-0 bg-black/70 flex items-center justify-center backdrop-blur-sm">
+                          <svg className="w-5 h-5 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                          </svg>
+                        </div>
+                      )}
+                    </button>
                   ))}
                 </div>
               )}
@@ -414,14 +450,46 @@ export function EventModal({ event, onClose, onNavigate }: EventModalProps) {
               >
                 <button
                   onClick={() => setIsLightboxOpen(false)}
-                  className="absolute top-6 right-6 w-14 h-14 rounded-full bg-white/20 backdrop-blur-sm border-2 border-white/70 flex items-center justify-center text-white hover:bg-white/30 hover:border-white hover:scale-105 transition-all duration-200 cursor-pointer shadow-lg"
+                  className="absolute top-6 right-6 w-14 h-14 rounded-full bg-white/20 backdrop-blur-sm border-2 border-white/70 flex items-center justify-center text-white hover:bg-white/30 hover:border-white hover:scale-105 transition-all duration-200 cursor-pointer shadow-lg z-10"
                   aria-label="Close lightbox"
                 >
                   <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
                   </svg>
                 </button>
-                
+
+                {/* Prev arrow */}
+                {currentPhotoIndex > 0 && (
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setCurrentPhotoIndex((i) => i - 1);
+                    }}
+                    className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-black/50 border border-white/30 flex items-center justify-center text-white hover:bg-black/70 hover:scale-105 transition-all duration-200 cursor-pointer z-10"
+                    aria-label="Previous photo"
+                  >
+                    <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                    </svg>
+                  </button>
+                )}
+
+                {/* Next arrow */}
+                {currentPhotoIndex < event.photos.length - 1 && (
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setCurrentPhotoIndex((i) => i + 1);
+                    }}
+                    className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-black/50 border border-white/30 flex items-center justify-center text-white hover:bg-black/70 hover:scale-105 transition-all duration-200 cursor-pointer z-10"
+                    aria-label="Next photo"
+                  >
+                    <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </button>
+                )}
+
                 <div className="max-w-5xl w-full text-center">
                   <div
                     className="aspect-[4/3] w-full rounded-sm mb-4 bg-cover bg-center bg-no-repeat"
@@ -432,7 +500,9 @@ export function EventModal({ event, onClose, onNavigate }: EventModalProps) {
                     }}
                   />
                   <p className="text-[#888] italic">{currentPhoto.caption}</p>
-                  <p className="text-[#555] text-sm mt-1">Source: {currentPhoto.source}</p>
+                  <p className="text-[#444] text-sm mt-2">
+                    {currentPhotoIndex + 1} / {event.photos.length}
+                  </p>
                 </div>
               </motion.div>
             )}

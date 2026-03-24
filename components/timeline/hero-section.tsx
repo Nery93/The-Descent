@@ -22,7 +22,7 @@ function AnimatedStat({ end, suffix = '', label, delay, inView }: AnimatedStatPr
   });
 
   // Format the final value to know its character width — reserves that space from the start
-  const finalFormatted = end.toLocaleString() + suffix;
+  const finalFormatted = end.toLocaleString('en-US') + suffix;
 
   return (
     <div className="text-center">
@@ -50,7 +50,11 @@ function AnimatedStat({ end, suffix = '', label, delay, inView }: AnimatedStatPr
   );
 }
 
-export function HeroSection() {
+interface HeroSectionProps {
+  warningAccepted: boolean;
+}
+
+export function HeroSection({ warningAccepted }: HeroSectionProps) {
   const ref = useRef<HTMLDivElement>(null);
   const [statsInView, setStatsInView] = useState(false);
   
@@ -206,21 +210,21 @@ export function HeroSection() {
             end={6000000}
             label="Jews Murdered"
             delay={0}
-            inView={statsInView}
+            inView={statsInView && warningAccepted}
           />
           <div className="hidden sm:block w-[3px] h-20 bg-[#333]" />
           <AnimatedStat
             end={27}
             label="Years"
             delay={300}
-            inView={statsInView}
+            inView={statsInView && warningAccepted}
           />
           <div className="hidden sm:block w-[2px] h-20 bg-[#333]" />
           <AnimatedStat
             end={17}
             label="Key Events"
             delay={600}
-            inView={statsInView}
+            inView={statsInView && warningAccepted}
           />
         </motion.div>
 

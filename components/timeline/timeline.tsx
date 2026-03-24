@@ -10,6 +10,8 @@ import { PhaseSection } from './phase-section';
 import { ProgressIndicator } from './progress-indicator';
 import { BreadcrumbNav } from './breadcrumb-nav';
 import { HeroSection } from './hero-section';
+import { ContentWarning } from './content-warning';
+import { LanguageSelector, Language } from './language-selector';
 import { SoundToggle } from './sound-toggle';
 import { GenocideMap } from './genocide-map';
 import { BackToTop } from './back-to-top';
@@ -28,6 +30,36 @@ export function Timeline() {
   const [currentPhase, setCurrentPhase] = useState<Phase>(1);
   const [currentEvent, setCurrentEvent] = useState<TimelineEvent | null>(null);
   const [showProgress, setShowProgress] = useState(false);
+  const [warningAccepted, setWarningAccepted] = useState(false);
+  const [warningVisible, setWarningVisible] = useState(false);
+  const [language, setLanguage] = useState<Language>('EN');
+
+  // Check localStorage on mount
+  useEffect(() => {
+    const seen = localStorage.getItem('content-warning-seen');
+    if (seen) {
+      setWarningAccepted(true);
+    } else {
+      setWarningVisible(true);
+    }
+    const savedLang = localStorage.getItem('selected-language') as Language | null;
+    if (savedLang === 'EN' || savedLang === 'PT') {
+      setLanguage(savedLang);
+    }
+  }, []);
+
+  const handleLanguageChange = (lang: Language) => {
+    setLanguage(lang);
+    localStorage.setItem('selected-language', lang);
+    console.log('Language changed to:', lang);
+  };
+
+  const handleAcceptWarning = () => {
+    localStorage.setItem('content-warning-seen', 'true');
+    setWarningVisible(false);
+    // Small delay so the fade-out animation completes before stats start
+    setTimeout(() => setWarningAccepted(true), 800);
+  };
 
   // On load: read ?event= from URL and reopen modal
   useEffect(() => {
@@ -107,6 +139,18 @@ export function Timeline() {
 
   return (
   <div className="relative">
+  {/* Content Warning */}
+  {warningVisible && (
+    <ContentWarning
+      onAccept={handleAcceptWarning}
+      language={language}
+      onLanguageChange={handleLanguageChange}
+    />
+  )}
+
+  {/* Language Selector */}
+  <LanguageSelector language={language} onChange={handleLanguageChange} />
+
   {/* Sound Toggle */}
   <SoundToggle />
   
@@ -130,7 +174,7 @@ export function Timeline() {
       />
 
       {/* Hero Section */}
-      <HeroSection />
+      <HeroSection warningAccepted={warningAccepted} />
 
       {/* Timeline content */}
       <div ref={timelineRef} className="relative">
