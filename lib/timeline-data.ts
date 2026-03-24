@@ -174,19 +174,19 @@ export const timelineEvents: TimelineEvent[] = [
     phase: 1,
     photos: [
       {
-        src: '/images/1923-wheelbarrow-money.jpg',
+        src: '/events/hyperinflation-1.jpg',
         alt: 'Woman using worthless banknotes as fuel',
         caption: 'Currency became so worthless it was cheaper to burn than firewood',
         source: 'Bundesarchiv',
       },
       {
-        src: '/images/1923-children-money.jpg',
+        src: '/events/hyperinflation-2.jpg',
         alt: 'Children playing with stacks of worthless currency',
         caption: 'Children play with stacks of worthless banknotes',
         source: 'German Federal Archives',
       },
       {
-        src: '/images/1923-breadline.jpg',
+        src: '/events/hyperinflation-3.jpg',
         alt: 'Long breadlines in German cities',
         caption: 'Germans queue for hours for basic necessities',
         source: 'Bundesarchiv',
@@ -222,19 +222,19 @@ export const timelineEvents: TimelineEvent[] = [
     phase: 1,
     photos: [
       {
-        src: '/images/1923-beer-hall.jpg',
+        src: '/events/putsch-1.jpg',
         alt: 'The Bürgerbräukeller in Munich',
         caption: 'The Bürgerbräukeller where Hitler launched his attempted coup',
         source: 'Bavarian State Library',
       },
       {
-        src: '/images/1923-marchers.jpg',
+        src: '/events/putsch-2.jpg',
         alt: 'Nazi marchers during the putsch',
         caption: 'Nazi marchers advance toward the Feldherrnhalle',
         source: 'Bundesarchiv',
       },
       {
-        src: '/images/1923-hitler-trial.jpg',
+        src: '/events/putsch-3.jpg',
         alt: 'Hitler at his trial',
         caption: 'Hitler used his trial as a propaganda platform',
         source: 'German Federal Archives',
@@ -270,19 +270,19 @@ export const timelineEvents: TimelineEvent[] = [
     phase: 1,
     photos: [
       {
-        src: '/images/1929-wall-street.jpg',
+        src: '/events/depression-1.jpg',
         alt: 'Crowds gather outside the New York Stock Exchange',
         caption: 'Panic on Wall Street as markets collapse',
         source: 'Library of Congress',
       },
       {
-        src: '/images/1930-unemployed-germany.jpg',
+        src: '/events/depression-2.jpg',
         alt: 'Unemployed workers in Germany',
         caption: 'Millions of Germans lost their jobs as the Depression hit',
         source: 'Bundesarchiv',
       },
       {
-        src: '/images/1932-nazi-rally.jpg',
+        src: '/events/depression-3.jpg',
         alt: 'Nazi rally during the Depression',
         caption: 'Nazi Party membership surged during the economic crisis',
         source: 'German Federal Archives',
@@ -317,19 +317,19 @@ export const timelineEvents: TimelineEvent[] = [
     phase: 2,
     photos: [
       {
-        src: '/images/1933-hitler-chancellor.jpg',
+        src: '/events/chancellor-1.jpg',
         alt: 'Hitler appointed Chancellor',
         caption: 'Hitler greets supporters from the Reich Chancellery window',
         source: 'Bundesarchiv',
       },
       {
-        src: '/images/1933-torchlight-march.jpg',
+        src: '/events/chancellor-2.jpg',
         alt: 'Nazi torchlight parade through Berlin',
         caption: 'SA troops march through the Brandenburg Gate celebrating Hitler\'s appointment',
         source: 'German Federal Archives',
       },
       {
-        src: '/images/1933-hindenburg-hitler.jpg',
+        src: '/events/chancellor-3.jpg',
         alt: 'Hindenburg and Hitler',
         caption: 'President Hindenburg appointed Hitler Chancellor, believing he could be controlled',
         source: 'Bundesarchiv',
@@ -365,19 +365,19 @@ export const timelineEvents: TimelineEvent[] = [
     phase: 2,
     photos: [
       {
-        src: '/images/1933-reichstag-burning.jpg',
+        src: '/events/reichstag-1.jpg',
         alt: 'The Reichstag building in flames',
         caption: 'The German Parliament building burns on the night of February 27',
         source: 'Bundesarchiv',
       },
       {
-        src: '/images/1933-reichstag-aftermath.jpg',
+        src: '/events/reichstag-2.jpg',
         alt: 'The gutted interior of the Reichstag',
         caption: 'The destroyed interior of the Reichstag chamber',
         source: 'German Federal Archives',
       },
       {
-        src: '/images/1933-emergency-decree.jpg',
+        src: '/events/reichstag-3.jpg',
         alt: 'Newspaper announcing emergency powers',
         caption: 'Emergency decree suspends civil liberties "for the protection of the people"',
         source: 'Bundesarchiv',
@@ -413,19 +413,19 @@ export const timelineEvents: TimelineEvent[] = [
     phase: 2,
     photos: [
       {
-        src: '/images/1933-enabling-act-vote.jpg',
+        src: '/events/Act-1.jpg',
         alt: 'Reichstag session for the Enabling Act vote',
         caption: 'The Reichstag meets at the Kroll Opera House to vote on the Enabling Act',
         source: 'Bundesarchiv',
       },
       {
-        src: '/images/1933-sa-intimidation.jpg',
+        src: '/events/act-2.jpg',
         alt: 'SA troops surrounding the Opera House',
         caption: 'SA and SS troops surrounded the building, intimidating legislators',
         source: 'German Federal Archives',
       },
       {
-        src: '/images/1933-otto-wels.jpg',
+        src: '/events/act-3.jpg',
         alt: 'Otto Wels, SPD leader',
         caption: 'Otto Wels delivered the last free speech in the German parliament',
         source: 'Bundesarchiv',
@@ -461,19 +461,19 @@ export const timelineEvents: TimelineEvent[] = [
     phase: 2,
     photos: [
       {
-        src: '/images/1933-book-burning-berlin.jpg',
+        src: '/events/bookburning-1.jpg',
         alt: 'Books burning in Berlin\'s Opernplatz',
         caption: 'Students and SA troops burn "un-German" books in Berlin\'s Opernplatz',
         source: 'National Archives',
       },
       {
-        src: '/images/1933-book-burning-crowd.jpg',
+        src: '/events/bookburning-2.jpg',
         alt: 'Crowds watching book burning',
         caption: 'Thousands gathered to watch as books by Jewish and "degenerate" authors were destroyed',
         source: 'Bundesarchiv',
       },
       {
-        src: '/images/1933-book-burning-students.jpg',
+        src: '/events/bookburning-3.jpg',
         alt: 'Students carrying books to the fire',
         caption: 'University students led the burnings, demonstrating how education can be corrupted',
         source: 'USHMM',
@@ -509,19 +509,19 @@ export const timelineEvents: TimelineEvent[] = [
     phase: 2,
     photos: [
       {
-        src: '/images/1935-nuremberg-rally.jpg',
+        src: '/events/nuremberg-1.jpg',
         alt: 'Nuremberg Rally where laws were announced',
         caption: 'The laws were announced at the annual Nuremberg Nazi Party Rally',
         source: 'Bundesarchiv',
       },
       {
-        src: '/images/1935-racial-chart.jpg',
+        src: '/events/nuremberg-2.jpg',
         alt: 'Nazi racial classification chart',
         caption: 'Charts like this classified people by "blood quantum" to determine who was Jewish',
         source: 'USHMM',
       },
       {
-        src: '/images/1935-jews-forbidden.jpg',
+        src: '/events/nuremberg-3.jpg',
         alt: 'Signs excluding Jews from public spaces',
         caption: '"Jews Not Welcome" signs appeared throughout Germany',
         source: 'Bundesarchiv',
@@ -557,31 +557,31 @@ export const timelineEvents: TimelineEvent[] = [
     phase: 2,
   photos: [
   {
-  src: '/images/1938-kristallnacht-synagogue.jpg',
+  src: '/events/kristallnacht-1.jpg',
   alt: 'Flames engulf a synagogue while firefighters stand by, protecting only neighboring buildings',
   caption: 'Over 1,400 synagogues were burned across Germany and Austria - firefighters only protected adjacent properties',
   source: 'Yad Vashem',
   },
   {
-  src: '/images/1938-broken-glass.jpg',
+  src: '/events/kristallnacht-2.jpg',
   alt: 'Streets covered with shattered glass from destroyed storefronts, debris everywhere',
   caption: 'The broken glass that gave the pogrom its name littered the streets of every German city',
   source: 'Bundesarchiv',
   },
   {
-  src: '/images/1938-shop-destroyed.jpg',
+  src: '/events/kristallnacht-3.jpg',
   alt: 'Interior of a destroyed Jewish-owned shop with merchandise scattered and smashed',
   caption: 'Jewish-owned businesses were systematically looted and destroyed',
   source: 'USHMM',
   },
   {
-  src: '/images/1938-arrests.jpg',
+  src: '/events/kristallnacht-4.jpg',
   alt: 'Jewish men being marched through streets by SA troops while civilians watch',
   caption: '30,000 Jewish men were arrested and sent to concentration camps',
   source: 'USHMM',
   },
   {
-  src: '/images/1938-firefighters-watching.jpg',
+  src: '/events/kristallnacht-5.jpg',
   alt: 'Firefighters standing idle while a synagogue burns, under orders not to intervene',
   caption: 'Firefighters were ordered to let Jewish buildings burn - only protecting Aryan property',
   source: 'German Federal Archives',
@@ -617,19 +617,19 @@ export const timelineEvents: TimelineEvent[] = [
     phase: 3,
     photos: [
       {
-        src: '/images/1939-poland-invasion.jpg',
+        src: '/events/ww2begins-1.jpg',
         alt: 'German troops crossing into Poland',
         caption: 'German forces cross into Poland on September 1, 1939',
         source: 'Bundesarchiv',
       },
       {
-        src: '/images/1939-warsaw-bombing.jpg',
+        src: '/events/ww2begins-2.jpg',
         alt: 'Warsaw under bombardment',
         caption: 'Warsaw is devastated by German air raids',
         source: 'Polish National Archives',
       },
       {
-        src: '/images/1939-polish-jews.jpg',
+        src: '/events/ww2begins-3.jpg',
         alt: 'Polish Jews under German occupation',
         caption: 'Poland\'s 3.3 million Jews fall under Nazi control',
         source: 'USHMM',
@@ -664,25 +664,25 @@ export const timelineEvents: TimelineEvent[] = [
     phase: 3,
     photos: [
       {
-        src: '/images/1940-warsaw-ghetto-wall.jpg',
+        src: '/events/ghetto-1.jpg',
         alt: 'Wall surrounding Warsaw Ghetto',
         caption: 'The Warsaw Ghetto was sealed by a 10-foot wall topped with barbed wire',
         source: 'Yad Vashem',
       },
       {
-        src: '/images/1940-ghetto-crowding.jpg',
+        src: '/events/ghetto-2.jpg',
         alt: 'Overcrowded conditions in the ghetto',
         caption: 'Over 400,000 people were crammed into 1.3 square miles',
         source: 'USHMM',
       },
       {
-        src: '/images/1941-ghetto-hunger.jpg',
+        src: '/events/ghetto-3.jpg',
         alt: 'Starving children in the ghetto',
         caption: 'Starvation was a deliberate Nazi policy',
         source: 'Yad Vashem',
       },
       {
-        src: '/images/1941-ghetto-corpses.jpg',
+        src: '/events/ghetto-4.jpg',
         alt: 'Bodies in the streets of the ghetto',
         caption: 'Death from starvation and disease became commonplace',
         source: 'USHMM',
@@ -718,19 +718,19 @@ export const timelineEvents: TimelineEvent[] = [
     phase: 3,
     photos: [
       {
-        src: '/images/1941-barbarossa-tanks.jpg',
+        src: '/events/barbarossa-1.jpg',
         alt: 'German tanks advancing into the Soviet Union',
         caption: 'Three million German troops invade the Soviet Union',
         source: 'Bundesarchiv',
       },
       {
-        src: '/images/1941-einsatzgruppen.jpg',
+        src: '/events/barbarossa-2.jpg',
         alt: 'Einsatzgruppen execution',
         caption: 'Einsatzgruppen murder Jews in mass shootings across the occupied East',
         source: 'USHMM',
       },
       {
-        src: '/images/1941-babi-yar.jpg',
+        src: '/events/barbarossa-3.jpg',
         alt: 'Ravine at Babi Yar',
         caption: 'Babi Yar: 33,771 Jews murdered in two days at this ravine near Kyiv',
         source: 'Yad Vashem',
@@ -766,19 +766,19 @@ export const timelineEvents: TimelineEvent[] = [
     phase: 3,
     photos: [
       {
-        src: '/images/1942-wannsee-villa.jpg',
+        src: '/events/wannsee-1.jpg',
         alt: 'The villa at Wannsee',
         caption: 'This elegant lakeside villa was the site of the conference',
         source: 'Gedenkstätte Haus der Wannsee-Konferenz',
       },
       {
-        src: '/images/1942-wannsee-participants.jpg',
+        src: '/events/wannsee-2.jpg',
         alt: 'Some of the conference participants',
         caption: 'Fifteen high-ranking Nazi officials attended the 90-minute meeting',
         source: 'Bundesarchiv',
       },
       {
-        src: '/images/1942-wannsee-protocol.jpg',
+        src: '/events/wannsee-3.jpg',
         alt: 'Copy of the Wannsee Protocol',
         caption: 'The sole surviving copy of the conference minutes',
         source: 'Political Archive of the German Foreign Office',
@@ -813,25 +813,25 @@ export const timelineEvents: TimelineEvent[] = [
     phase: 3,
     photos: [
       {
-        src: '/images/1942-auschwitz-gate.jpg',
+        src: '/events/deathcamps-1.jpg',
         alt: 'Gate at Auschwitz-Birkenau',
         caption: 'The entrance to Auschwitz-Birkenau, the largest killing center',
         source: 'Auschwitz-Birkenau State Museum',
       },
       {
-        src: '/images/1943-selection.jpg',
+        src: '/events/deathcamps-2.jpg',
         alt: 'Selection at Auschwitz',
         caption: 'SS doctors selected who would be killed immediately and who would be worked to death',
         source: 'Yad Vashem',
       },
       {
-        src: '/images/1944-hungarian-jews.jpg',
+        src: '/events/deathcamps-3.jpg',
         alt: 'Hungarian Jews arriving at Auschwitz',
         caption: '437,000 Hungarian Jews were deported to Auschwitz in 1944',
         source: 'USHMM',
       },
       {
-        src: '/images/1945-crematorium.jpg',
+        src: '/events/deathcamps-4.jpg',
         alt: 'Crematorium at Auschwitz',
         caption: 'The crematoria operated around the clock',
         source: 'Auschwitz-Birkenau State Museum',

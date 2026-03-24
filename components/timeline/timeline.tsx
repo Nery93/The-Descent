@@ -1,8 +1,9 @@
 'use client';
 
 import { useState, useCallback, useEffect, useRef } from 'react';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { timelineEvents, Phase, getPhaseForYear, TimelineEvent, phaseInfo, getPhaseColor } from '@/lib/timeline-data';
+import { timelineEvents, Phase, getPhaseForYear, TimelineEvent } from '@/lib/timeline-data';
 import { EventCard } from './event-card';
 import { EventModal } from './event-modal';
 import { PhaseSection } from './phase-section';
@@ -20,11 +21,22 @@ const phase3Events = timelineEvents.filter((e) => e.phase === 3);
 const phase4Events = timelineEvents.filter((e) => e.phase === 4);
 
 export function Timeline() {
+  const router = useRouter();
+  const searchParams = useSearchParams();
   const [selectedEvent, setSelectedEvent] = useState<TimelineEvent | null>(null);
   const [currentYear, setCurrentYear] = useState(1918);
   const [currentPhase, setCurrentPhase] = useState<Phase>(1);
   const [currentEvent, setCurrentEvent] = useState<TimelineEvent | null>(null);
   const [showProgress, setShowProgress] = useState(false);
+
+  // On load: read ?event= from URL and reopen modal
+  useEffect(() => {
+    const eventId = searchParams.get('event');
+    if (eventId) {
+      const event = timelineEvents.find((e) => e.id === eventId);
+      if (event) setSelectedEvent(event);
+    }
+  }, [searchParams]);
   
   const timelineRef = useRef<HTMLDivElement>(null);
   const phase1Ref = useRef<HTMLElement>(null);
@@ -73,11 +85,13 @@ export function Timeline() {
 
   const handleEventClick = useCallback((event: TimelineEvent) => {
     setSelectedEvent(event);
-  }, []);
+    router.replace(`?event=${event.id}`, { scroll: false });
+  }, [router]);
 
   const handleModalClose = useCallback(() => {
     setSelectedEvent(null);
-  }, []);
+    router.replace('/', { scroll: false });
+  }, [router]);
 
   const handleNavigate = useCallback((eventId: string) => {
     const event = timelineEvents.find((e) => e.id === eventId);

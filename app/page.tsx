@@ -1,3 +1,4 @@
+import { Suspense } from 'react';
 import { Timeline } from '@/components/timeline/timeline';
 import type { Metadata, Viewport } from 'next';
 
@@ -27,7 +28,9 @@ export default function HomePage() {
       <div className="vignette" aria-hidden="true" />
       
       {/* Main timeline */}
-      <Timeline />
+      <Suspense>
+        <Timeline />
+      </Suspense>
       
       {/* Accessibility announcement for screen readers */}
       <div className="sr-only" role="status" aria-live="polite">
