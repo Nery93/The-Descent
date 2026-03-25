@@ -23,5 +23,11 @@ export function useTranslatedEvent(event: TimelineEvent | null): TimelineEvent |
     eyewitnessQuote: pt.eyewitnessQuote ?? event.eyewitnessQuote,
     whyThisMatters: pt.whyThisMatters ?? event.whyThisMatters,
     relatedEvents: pt.relatedEvents ?? event.relatedEvents,
+    photos: pt.captions
+      ? event.photos.map((photo, i) => ({
+          ...photo,
+          caption: pt.captions[i] ?? photo.caption,
+        }))
+      : event.photos,
   };
 }

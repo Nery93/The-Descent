@@ -22,29 +22,27 @@ function AnimatedStat({ end, suffix = '', label, delay, inView }: AnimatedStatPr
     enabled: inView,
   });
 
-  // Format the final value to know its character width — reserves that space from the start
   const finalFormatted = end.toLocaleString('en-US') + suffix;
 
   return (
     <div className="text-center">
       <div className="relative inline-block">
-        {/* Ghost element reserves the final width so layout never shifts */}
+        {/* Ghost element reserves width so layout never shifts */}
         <div
-          className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-bold invisible select-none"
+          className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-bold invisible select-none"
           style={{ fontVariantNumeric: 'tabular-nums' }}
           aria-hidden="true"
         >
           {finalFormatted}
         </div>
-        {/* Actual animated counter, absolutely overlaid */}
         <div
-          className="absolute inset-0 flex items-center justify-center text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-[#f5f5f5] tabular-nums"
+          className="absolute inset-0 flex items-center justify-center text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-[#f5f5f5] tabular-nums"
           style={{ fontVariantNumeric: 'tabular-nums' }}
         >
           {formattedValue}{suffix}
         </div>
       </div>
-      <div className="text-sm sm:text-base text-[#888] uppercase tracking-wider mt-2">
+      <div className="text-[10px] sm:text-sm text-[#999] uppercase tracking-wider mt-1 sm:mt-2 leading-tight">
         {label}
       </div>
     </div>
@@ -89,10 +87,13 @@ export function HeroSection({ warningAccepted }: HeroSectionProps) {
     return () => observer.disconnect();
   }, []);
 
-  // Check for reduced motion preference
-  const prefersReducedMotion = typeof window !== 'undefined' 
-    ? window.matchMedia('(prefers-reduced-motion: reduce)').matches 
-    : false;
+  // Detect reduced motion after mount to avoid SSR/client mismatch
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+  useEffect(() => {
+    setPrefersReducedMotion(
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    );
+  }, []);
 
   return (
     <div ref={ref} className="relative min-h-screen flex items-center justify-center overflow-hidden">
@@ -122,7 +123,7 @@ export function HeroSection({ warningAccepted }: HeroSectionProps) {
 
         {/* Photo description for context */}
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-          <div className="absolute bottom-32 left-1/2 -translate-x-1/2 text-center opacity-40">
+          <div className="hidden sm:block absolute bottom-32 left-1/2 -translate-x-1/2 text-center opacity-40">
             <p className="text-sm text-[#888] italic font-serif max-w-md">
               [Historical Photo: Liberated prisoners behind barbed wire, Bergen-Belsen 1945]
             </p>
@@ -158,16 +159,16 @@ export function HeroSection({ warningAccepted }: HeroSectionProps) {
       />
 
       {/* Content */}
-      <motion.div 
+      <motion.div
         style={{ opacity, y: contentY, scale }}
-        className="relative z-20 text-center px-4 max-w-4xl mx-auto"
+        className="relative z-20 text-center px-5 max-w-4xl mx-auto w-full"
       >
-        {/* Warning text */}
+        {/* Top badge — pushed below fixed buttons on mobile */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.8 }}
-          className="mb-8"
+          className="mb-6 sm:mb-8 mt-20 sm:mt-0"
         >
           <span className="inline-block px-4 py-2 text-xs uppercase tracking-[0.3em] text-[#8b1a1a] border border-[#8b1a1a]/60 rounded-sm bg-black/30 backdrop-blur-sm">
             {t('subtitle')}
@@ -179,54 +180,64 @@ export function HeroSection({ warningAccepted }: HeroSectionProps) {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4, duration: 0.8 }}
-          className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-[#e8e8e8] leading-[1.1] mb-6"
+          className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-[#e8e8e8] leading-[1.1] mb-4 sm:mb-6"
         >
           <span className="block text-balance">{t('title')}</span>
           <span
-            className="block text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-normal mt-2 opacity-60"
+            className="block text-xl sm:text-3xl md:text-4xl lg:text-5xl font-normal mt-2 opacity-60"
             style={{ fontVariantNumeric: 'tabular-nums' }}
           >
             {t('years')}
           </span>
         </motion.h1>
 
-        {/* Subtitle */}
+        {/* Description */}
         <motion.p
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.6, duration: 0.8 }}
-          className="text-lg sm:text-xl text-[#888] max-w-2xl mx-auto leading-relaxed mb-12 text-balance"
+          className="text-base sm:text-xl text-[#b0b4bb] max-w-2xl mx-auto leading-relaxed mb-8 sm:mb-12 text-balance"
         >
           {t('description')}
         </motion.p>
 
-        {/* Animated Stats */}
+        {/* Stats — 3-column grid on mobile, horizontal row on sm+ */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.8, duration: 0.8 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-8 sm:gap-16 lg:gap-24 max-w-3xl mx-auto mb-16"
+          className="mb-10 sm:mb-16"
+          aria-label="Key statistics"
         >
-          <AnimatedStat
-            end={6000000}
-            label={t('jewsMurdered')}
-            delay={0}
-            inView={statsInView && warningAccepted}
-          />
-          <div className="hidden sm:block w-[3px] h-20 bg-[#333]" />
-          <AnimatedStat
-            end={27}
-            label={t('yearsCount')}
-            delay={300}
-            inView={statsInView && warningAccepted}
-          />
-          <div className="hidden sm:block w-[2px] h-20 bg-[#333]" />
-          <AnimatedStat
-            end={17}
-            label={t('keyEvents')}
-            delay={600}
-            inView={statsInView && warningAccepted}
-          />
+          {/* Mobile: 3-col grid with border dividers */}
+          <div className="grid grid-cols-3 sm:hidden border border-[#2a2a2a] rounded-sm overflow-hidden">
+            {[
+              { end: 6000000, label: t('jewsMurdered'), delay: 0 },
+              { end: 27, label: t('yearsCount'), delay: 300 },
+              { end: 17, label: t('keyEvents'), delay: 600 },
+            ].map((stat, i) => (
+              <div
+                key={i}
+                className={`py-4 px-2 bg-black/40 ${i < 2 ? 'border-r border-[#2a2a2a]' : ''}`}
+              >
+                <AnimatedStat
+                  end={stat.end}
+                  label={stat.label}
+                  delay={stat.delay}
+                  inView={statsInView && warningAccepted}
+                />
+              </div>
+            ))}
+          </div>
+
+          {/* Desktop: horizontal flex with vertical dividers */}
+          <div className="hidden sm:flex items-center justify-center gap-16 lg:gap-24 max-w-3xl mx-auto">
+            <AnimatedStat end={6000000} label={t('jewsMurdered')} delay={0} inView={statsInView && warningAccepted} />
+            <div className="w-px h-20 bg-[#333]" aria-hidden="true" />
+            <AnimatedStat end={27} label={t('yearsCount')} delay={300} inView={statsInView && warningAccepted} />
+            <div className="w-px h-20 bg-[#333]" aria-hidden="true" />
+            <AnimatedStat end={17} label={t('keyEvents')} delay={600} inView={statsInView && warningAccepted} />
+          </div>
         </motion.div>
 
         {/* Scroll indicator */}
@@ -235,26 +246,17 @@ export function HeroSection({ warningAccepted }: HeroSectionProps) {
           animate={{ opacity: 1 }}
           transition={{ delay: 1.2, duration: 0.8 }}
           className="flex flex-col items-center gap-2"
+          aria-hidden="true"
         >
-          <span className="text-xs uppercase tracking-[0.2em] text-[#9ca3af]">
+          <span className="text-xs uppercase tracking-[0.2em] text-[#c9ced6]">
             {t('scrollToBegin')}
           </span>
           <motion.div
             animate={{ y: [0, 8, 0] }}
             transition={{ repeat: Infinity, duration: 1.5, ease: 'easeInOut' }}
           >
-            <svg 
-              className="w-6 h-6 text-[#9ca3af]" 
-              fill="none" 
-              viewBox="0 0 24 24" 
-              stroke="currentColor"
-            >
-              <path 
-                strokeLinecap="round" 
-                strokeLinejoin="round" 
-                strokeWidth={1.5} 
-                d="M19 14l-7 7m0 0l-7-7m7 7V3" 
-              />
+            <svg className="w-6 h-6 text-[#c9ced6]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
             </svg>
           </motion.div>
         </motion.div>

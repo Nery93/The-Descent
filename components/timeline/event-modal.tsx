@@ -91,10 +91,10 @@ export function EventModal({ event, onClose, onNavigate }: EventModalProps) {
         }
       }
       if (event && e.key === 'ArrowLeft' && !showShareModal) {
-        setCurrentPhotoIndex((i) => (i > 0 ? i - 1 : event.photos.length - 1));
+        setCurrentPhotoIndex((i) => (i > 0 ? i - 1 : ev.photos.length - 1));
       }
       if (event && e.key === 'ArrowRight' && !showShareModal) {
-        setCurrentPhotoIndex((i) => (i < event.photos.length - 1 ? i + 1 : 0));
+        setCurrentPhotoIndex((i) => (i < ev.photos.length - 1 ? i + 1 : 0));
       }
     };
 
@@ -119,7 +119,7 @@ export function EventModal({ event, onClose, onNavigate }: EventModalProps) {
 
   const ev = translatedEvent ?? event;
   const phaseColor = getPhaseColor(event.phase);
-  const currentPhoto = event.photos[currentPhotoIndex]; // photos not translated (historical captions)
+  const currentPhoto = ev.photos[currentPhotoIndex];
 
   return (
     <AnimatePresence>
@@ -135,7 +135,7 @@ export function EventModal({ event, onClose, onNavigate }: EventModalProps) {
           {/* Close button - always visible with dark background */}
           <button
             onClick={onClose}
-            className="fixed top-6 right-6 z-[110] w-14 h-14 rounded-full bg-white/40 backdrop-blur-sm border-2 border-white/110 flex items-center justify-center text-white hover:bg-white/30 hover:border-white hover:scale-105 transition-all duration-200 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50 shadow-lg shadow-black/50"
+            className="fixed top-4 right-4 sm:top-6 sm:right-6 z-110 w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-white/40 backdrop-blur-sm border-2 border-white/40 flex items-center justify-center text-white hover:bg-white/30 hover:border-white hover:scale-105 transition-all duration-200 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50 shadow-lg shadow-black/50"
             aria-label="Close modal"
           >
             <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
@@ -213,14 +213,14 @@ export function EventModal({ event, onClose, onNavigate }: EventModalProps) {
               </div>
 
               {/* Navigation arrows */}
-              {event.photos.length > 1 && (
+              {ev.photos.length > 1 && (
                 <>
                   <button
                     onClick={(e) => {
                       e.stopPropagation();
-                      setCurrentPhotoIndex((i) => (i > 0 ? i - 1 : event.photos.length - 1));
+                      setCurrentPhotoIndex((i) => (i > 0 ? i - 1 : ev.photos.length - 1));
                     }}
-                    className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-black/50 border border-white/20 flex items-center justify-center text-[#9ca3af] hover:text-white hover:bg-black/70 transition-colors cursor-pointer"
+                    className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-black/60 border border-white/20 flex items-center justify-center text-[#9ca3af] hover:text-white hover:bg-black/80 transition-colors cursor-pointer"
                     aria-label="Previous photo"
                   >
                     <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -230,9 +230,9 @@ export function EventModal({ event, onClose, onNavigate }: EventModalProps) {
                   <button
                     onClick={(e) => {
                       e.stopPropagation();
-                      setCurrentPhotoIndex((i) => (i < event.photos.length - 1 ? i + 1 : 0));
+                      setCurrentPhotoIndex((i) => (i < ev.photos.length - 1 ? i + 1 : 0));
                     }}
-                    className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-black/50 border border-white/20 flex items-center justify-center text-[#9ca3af] hover:text-white hover:bg-black/70 transition-colors cursor-pointer"
+                    className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-black/60 border border-white/20 flex items-center justify-center text-[#9ca3af] hover:text-white hover:bg-black/80 transition-colors cursor-pointer"
                     aria-label="Next photo"
                   >
                     <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -242,10 +242,10 @@ export function EventModal({ event, onClose, onNavigate }: EventModalProps) {
                 </>
               )}
 
-              {/* Thumbnail navigation - 80x80 thumbnails */}
-              {event.photos.length > 1 && (
-                <div className="absolute bottom-24 left-1/2 -translate-x-1/2 flex gap-3 bg-black/60 backdrop-blur-sm p-3 rounded-sm">
-                  {event.photos.map((photo, i) => (
+              {/* Thumbnail navigation */}
+              {ev.photos.length > 1 && (
+                <div className="absolute bottom-24 left-1/2 -translate-x-1/2 flex gap-2 sm:gap-3 bg-black/60 backdrop-blur-sm p-2 sm:p-3 rounded-sm max-w-[calc(100vw-32px)] overflow-x-auto">
+                  {ev.photos.map((photo, i) => (
                     <button
                       key={i}
                       onClick={(e) => {
@@ -253,7 +253,7 @@ export function EventModal({ event, onClose, onNavigate }: EventModalProps) {
                         setCurrentPhotoIndex(i);
                       }}
                       className={cn(
-                        'relative w-20 h-20 rounded-sm overflow-hidden transition-all duration-200 bg-cover bg-center cursor-pointer',
+                        'relative w-14 h-14 sm:w-20 sm:h-20 rounded-sm overflow-hidden transition-all duration-200 bg-cover bg-center cursor-pointer shrink-0',
                         i === currentPhotoIndex
                           ? 'border-[3px] border-white opacity-100 scale-105'
                           : 'border-2 border-white/50 opacity-70 hover:opacity-100 hover:border-white'
@@ -280,7 +280,7 @@ export function EventModal({ event, onClose, onNavigate }: EventModalProps) {
 
             {/* Content Section - Bottom */}
             <section className="relative bg-[#0a0a0a] border-t border-[#1a1a1a]">
-              <div className="max-w-4xl mx-auto px-6 py-12 lg:py-16">
+              <div className="max-w-4xl mx-auto px-4 sm:px-6 py-8 sm:py-12 lg:py-16">
                 {/* Year and Title - Enhanced font sizes */}
                 <header className="mb-12">
                   <div
@@ -289,7 +289,7 @@ export function EventModal({ event, onClose, onNavigate }: EventModalProps) {
                   >
                     {ev.month && `${ev.month} `}{event.year}
                   </div>
-                  <h1 className="font-serif text-5xl lg:text-5xl font-bold text-[#f5f5f5] leading-tight mb-5 text-balance">
+                  <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-[#f5f5f5] leading-tight mb-5 text-balance">
                     {ev.title}
                   </h1>
                   <div 
@@ -480,7 +480,7 @@ export function EventModal({ event, onClose, onNavigate }: EventModalProps) {
                 )}
 
                 {/* Next arrow */}
-                {currentPhotoIndex < event.photos.length - 1 && (
+                {currentPhotoIndex < ev.photos.length - 1 && (
                   <button
                     onClick={(e) => {
                       e.stopPropagation();
@@ -506,7 +506,7 @@ export function EventModal({ event, onClose, onNavigate }: EventModalProps) {
                   />
                   <p className="text-[#888] italic">{currentPhoto.caption}</p>
                   <p className="text-[#444] text-sm mt-2">
-                    {currentPhotoIndex + 1} / {event.photos.length}
+                    {currentPhotoIndex + 1} / {ev.photos.length}
                   </p>
                 </div>
               </motion.div>

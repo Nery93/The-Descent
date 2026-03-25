@@ -5,6 +5,7 @@ import { useRouter, useSearchParams } from 'next/navigation';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { timelineEvents, Phase, getPhaseForYear, TimelineEvent } from '@/lib/timeline-data';
 import { useLanguage } from '@/components/language-provider';
+import { useTranslations } from 'next-intl';
 import { EventCard } from './event-card';
 import { EventModal } from './event-modal';
 import { PhaseSection } from './phase-section';
@@ -27,6 +28,7 @@ export function Timeline() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const { setLocale } = useLanguage();
+  const tc = useTranslations('closing');
   const [selectedEvent, setSelectedEvent] = useState<TimelineEvent | null>(null);
   const [currentYear, setCurrentYear] = useState(1918);
   const [currentPhase, setCurrentPhase] = useState<Phase>(1);
@@ -150,19 +152,24 @@ export function Timeline() {
     />
   )}
 
-  {/* Language Selector */}
-  <LanguageSelector language={language} onChange={handleLanguageChange} />
-
-  {/* Sound Toggle */}
-  <SoundToggle />
+  {/* Top-right controls — language + sound grouped together */}
+  <motion.div
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    transition={{ delay: 1.5 }}
+    className="fixed top-4 right-4 z-50 flex items-center gap-2"
+  >
+    <LanguageSelector language={language} onChange={handleLanguageChange} />
+    <SoundToggle />
+  </motion.div>
   
   {/* Back to Top Button */}
   <BackToTop />
 
       {/* Progress indicator */}
       {showProgress && (
-        <ProgressIndicator 
-          currentYear={currentYear} 
+        <ProgressIndicator
+          currentYear={currentYear}
           currentPhase={currentPhase}
           currentEvent={currentEvent}
         />
@@ -347,7 +354,7 @@ export function Timeline() {
     {'"'}
   </span>
   <h2 className="font-serif text-2xl lg:text-4xl text-[#e8e8e8] leading-relaxed text-balance">
-    Those who cannot remember the past are condemned to repeat it.
+    {tc('quote')}
   </h2>
   <span className="absolute -bottom-12 left-1/2 -translate-x-1/2 text-8xl font-serif text-[#4a5568]/15">
     {'"'}
@@ -355,32 +362,20 @@ export function Timeline() {
   </div>
   
   <p className="text-[#888] mb-4 mt-16">
-    — George Santayana
+    {tc('attribution')}
   </p>
-  
+
   <div className="w-8 h-px bg-[#2a2a2a] mx-auto my-12" />
-  
+
   <div className="text-[#999] space-y-6 text-base leading-relaxed max-w-2xl mx-auto">
-  <p>
-    The Holocaust was not inevitable. At every step, choices were made—by leaders,
-    by institutions, by ordinary people. Understanding how it happened is the first
-    step in ensuring it never happens again.
-  </p>
-  <p>
-    They stopped it then. People fought, bled, and died to end the genocide. 
-    The Nuremberg principles established that some crimes are so terrible that 
-    no order justifies them, no government shields the guilty.
-  </p>
-  <p>
-    We remember the six million Jews and millions of others who were murdered.
-    We honor the survivors who shared their stories. We honor those who liberated them.
-    We commit to vigilance against hatred, discrimination, and the forces that enable genocide.
-  </p>
+    <p>{tc('p1')}</p>
+    <p>{tc('p2')}</p>
+    <p>{tc('p3')}</p>
   </div>
-  
+
   <div className="mt-16 pt-8 border-t border-[#2a2a2a]">
   <p className="text-sm text-[#666] uppercase tracking-[0.3em]">
-    Never Forget · Never Again
+    {tc('neverForget')}
   </p>
   </div>
           </motion.div>

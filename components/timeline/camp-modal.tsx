@@ -1,7 +1,9 @@
 'use client';
 
 import { useEffect, useCallback } from 'react';
+import { useRouter } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useTranslations } from 'next-intl';
 import { Camp, campTypeInfo, formatDeaths } from '@/lib/camp-data';
 import { timelineEvents } from '@/lib/timeline-data';
 
@@ -11,6 +13,9 @@ interface CampModalProps {
 }
 
 export function CampModal({ camp, onClose }: CampModalProps) {
+  const router = useRouter();
+  const t = useTranslations('map');
+  const tDesc = useTranslations('campDescriptions');
   // Handle escape key
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -92,7 +97,7 @@ export function CampModal({ camp, onClose }: CampModalProps) {
                 />
                 <div>
                   <p className="text-xs uppercase tracking-wider mb-1" style={{ color: typeInfo.color }}>
-                    {typeInfo.label}
+                    {t(camp.type as 'death' | 'concentration' | 'transit' | 'labor')}
                   </p>
                   <h2 className="font-serif text-2xl lg:text-3xl text-[#e8e8e8] mb-2">
                     {camp.name}
@@ -107,24 +112,24 @@ export function CampModal({ camp, onClose }: CampModalProps) {
             {/* Stats Grid */}
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 p-6 lg:p-8 bg-[#0d0d0d] border-b border-[#1a1a1a]">
               <div>
-                <p className="text-xs uppercase tracking-wider text-[#666] mb-1">Deaths</p>
+                <p className="text-xs uppercase tracking-wider text-[#666] mb-1">{t('deaths')}</p>
                 <p className="text-xl font-bold text-[#dc2626] tabular-nums">
                   {camp.deaths.toLocaleString()}
                 </p>
               </div>
               <div>
-                <p className="text-xs uppercase tracking-wider text-[#666] mb-1">Operational</p>
+                <p className="text-xs uppercase tracking-wider text-[#666] mb-1">{t('operational')}</p>
                 <p className="text-lg text-[#e8e8e8]">{camp.operationalDates}</p>
               </div>
               {camp.liberatedBy && (
                 <div>
-                  <p className="text-xs uppercase tracking-wider text-[#666] mb-1">Liberated By</p>
+                  <p className="text-xs uppercase tracking-wider text-[#666] mb-1">{t('liberatedBy')}</p>
                   <p className="text-sm text-[#aaa]">{camp.liberatedBy}</p>
                 </div>
               )}
               {camp.liberationDate && (
                 <div>
-                  <p className="text-xs uppercase tracking-wider text-[#666] mb-1">Liberation Date</p>
+                  <p className="text-xs uppercase tracking-wider text-[#666] mb-1">{t('liberationDate')}</p>
                   <p className="text-sm text-[#aaa]">{camp.liberationDate}</p>
                 </div>
               )}
@@ -132,9 +137,9 @@ export function CampModal({ camp, onClose }: CampModalProps) {
 
             {/* Description */}
             <div className="p-6 lg:p-8">
-              <h3 className="text-xs uppercase tracking-wider text-[#666] mb-4">Historical Context</h3>
+              <h3 className="text-xs uppercase tracking-wider text-[#666] mb-4">{t('historicalContext')}</h3>
               <p className="text-[#ccc] leading-relaxed text-lg">
-                {camp.description}
+                {tDesc(camp.id as any)}
               </p>
             </div>
 
@@ -148,15 +153,21 @@ export function CampModal({ camp, onClose }: CampModalProps) {
             {/* Related Timeline Event */}
             {relatedEvent && (
               <div className="p-6 lg:p-8 border-t border-[#1a1a1a] bg-[#0d0d0d]">
-                <h3 className="text-xs uppercase tracking-wider text-[#666] mb-4">Related Timeline Event</h3>
+                <h3 className="text-xs uppercase tracking-wider text-[#666] mb-4">{t('relatedEvent')}</h3>
                 <div className="flex items-center justify-between bg-[#1a1a1a] rounded-sm p-4">
                   <div>
                     <p className="text-sm text-[#aaa]">{relatedEvent.month} {relatedEvent.year}</p>
                     <p className="text-[#e8e8e8] font-medium">{relatedEvent.title}</p>
                   </div>
-                  <div className="text-xs text-[#666] bg-[#0a0a0a] px-3 py-1 rounded-sm">
-                    View in Timeline
-                  </div>
+                  <button
+                    onClick={() => {
+                      onClose();
+                      router.push(`/?event=${relatedEvent.id}`);
+                    }}
+                    className="text-xs text-[#aaa] hover:text-white bg-[#0a0a0a] hover:bg-[#1a1a1a] border border-[#2a2a2a] hover:border-[#3a3a3a] px-3 py-1 rounded-sm transition-all cursor-pointer"
+                  >
+                    {t('viewInTimeline')} →
+                  </button>
                 </div>
               </div>
             )}
@@ -169,8 +180,8 @@ export function CampModal({ camp, onClose }: CampModalProps) {
                 </svg>
                 <div>
                   <p className="text-sm text-[#ccc] leading-relaxed">
-                    <strong className="text-[#dc2626]">{formatDeaths(camp.deaths)} people</strong> were murdered at {camp.name}. 
-                    Each number represents a human life—someone&apos;s parent, child, sibling, friend.
+                    <strong className="text-[#dc2626]">{formatDeaths(camp.deaths)}</strong>{' '}
+                    {t('deathTollNote', { name: camp.name })}
                   </p>
                 </div>
               </div>

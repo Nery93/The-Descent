@@ -1,9 +1,8 @@
 'use client';
 
 import { getPhaseColor, Phase, phaseInfo, TimelineEvent } from '@/lib/timeline-data';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
 import { useTranslations } from 'next-intl';
-
 interface ProgressIndicatorProps {
   currentYear: number;
   currentPhase: Phase;
@@ -47,22 +46,30 @@ export function ProgressIndicator({ currentYear, currentPhase, currentEvent }: P
             </motion.span>
             
             <div className="hidden sm:block">
-              <motion.div 
-                key={currentPhase}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                className="text-xs uppercase tracking-wider text-white/70 font-medium"
-              >
-                {t('label')} {currentPhase} {t('ofFour')}
-              </motion.div>
-              <motion.div 
-                key={phase.name}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                className="text-sm font-medium text-[#d1d5db]"
-              >
-                {phase.name}
-              </motion.div>
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={`label-${currentPhase}`}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.2 }}
+                  className="text-xs uppercase tracking-wider text-white/70 font-medium"
+                >
+                  {t('label')} {currentPhase} {t('ofFour')}
+                </motion.div>
+              </AnimatePresence>
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={`phase-${currentPhase}`}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.2 }}
+                  className="text-sm font-medium text-[#d1d5db]"
+                >
+                  {t(`phase${currentPhase}`)}
+                </motion.div>
+              </AnimatePresence>
             </div>
           </div>
           
@@ -143,7 +150,7 @@ export function ProgressIndicator({ currentYear, currentPhase, currentEvent }: P
           </div>
         </div>
       </div>
-      
+
       {/* Thin progress line at very top */}
       <motion.div
         className="absolute top-0 left-0 h-[6px]"

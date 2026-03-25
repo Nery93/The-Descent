@@ -41,22 +41,73 @@
   },
   "map": {
     "title": "Geografia do Genocídio",
-    "subtitle": "A rede de campos na Europa ocupada",
-    "death": "Campo de Extermínio",
-    "concentration": "Campo de Concentração",
-    "transit": "Campo de Trânsito",
-    "labor": "Campo de Trabalho",
+    "subtitle": "A rede de campos na Europa ocupada pelos nazis, 1933-1945",
+    "death": "Campos de Extermínio",
+    "concentration": "Campos de Concentração",
+    "transit": "Campos de Trânsito",
+    "labor": "Campos de Trabalho",
     "victims": "vítimas",
     "operational": "Operacional",
     "loading": "A carregar mapa...",
     "campDetails": "Detalhes do Campo",
     "totalDeaths": "Total de Mortes",
     "peakOperation": "Pico de Operação",
-    "campsShown": "Campos Mostrados"
+    "campsShown": "Campos Mostrados",
+    "mostDeadly": "Mais Mortífero",
+    "statistics": "Estatísticas",
+    "filterCamps": "Filtrar Campos",
+    "legend": "Legenda",
+    "circleSizeNote": "Tamanho do círculo = nº de mortes",
+    "clickForDetails": "Clique para mais detalhes",
+    "mapCaption": "Clique em qualquer marcador para informação detalhada. Arraste e faça zoom para explorar.",
+    "deaths": "Mortes",
+    "dates": "Datas",
+    "liberatedBy": "Libertado Por",
+    "liberationDate": "Data de Libertação",
+    "historicalContext": "Contexto Histórico",
+    "relatedEvent": "Evento Relacionado na Timeline",
+    "viewInTimeline": "Ver na Timeline",
+    "deathTollNote": "pessoas foram assassinadas em {name}. Cada número representa uma vida humana — um pai, uma mãe, um filho, um amigo."
+  },
+  "campDescriptions": {
+    "auschwitz": "O maior campo de extermínio nazi. Mais de 1,1 milhão de pessoas assassinadas, cerca de 90% delas judias. Local de genocídio industrial com câmaras de gás.",
+    "treblinka": "O segundo campo mais mortífero. Quase todos os chegados eram gasados em horas. Destruído pelos nazis para esconder as provas após uma revolta dos prisioneiros.",
+    "belzec": "Primeiro campo da Operação Reinhard. Apenas 7 sobreviventes conhecidos. Completamente desmantelado pelos nazis para eliminar evidências.",
+    "sobibor": "Local da única fuga em massa bem-sucedida. 300 prisioneiros fugiram em outubro de 1943, levando ao encerramento do campo.",
+    "chelmno": "Primeiro campo de extermínio nazi. Usou carrinhas de gás móveis. Apenas 4 sobreviventes conhecidos.",
+    "majdanek": "Primeiro grande campo libertado pelos Aliados. Provas largamente intactas pois os nazis fugiram depressa demais para o destruir.",
+    "dachau": "Primeiro campo de concentração nazi. Modelo para todos os campos seguintes. Experiências médicas realizadas em prisioneiros.",
+    "buchenwald": "Um dos maiores campos na Alemanha. Os prisioneiros organizaram uma resistência clandestina. Elie Wiesel esteve aqui preso.",
+    "bergen-belsen": "Onde Anne Frank morreu. 14.000 pessoas morreram após a libertação, apesar dos cuidados médicos, devido a doenças e à fome.",
+    "sachsenhausen": "Perto de Berlim. Serviu como centro de formação para oficiais SS. Utilizado para experiências médicas.",
+    "ravensbruck": "O maior campo para mulheres. Experiências médicas realizadas em prisioneiras. Mais de 130.000 mulheres encarceradas.",
+    "mauthausen": "Único campo classificado \"Grau III\" (o mais severo). Infame \"Escada da Morte\" na pedreira. Republicanos espanhóis entre as vítimas.",
+    "neuengamme": "O maior campo no noroeste da Alemanha. Mais de 80 subcampos. Muitos prisioneiros morreram nas evacuações.",
+    "flossenburg": "Dietrich Bonhoeffer foi executado aqui. Campo de trabalho na pedreira com condições brutais.",
+    "stutthof": "Primeiro campo fora da Alemanha. Último campo libertado. Câmara de gás construída em 1944.",
+    "gross-rosen": "Mais de 100 subcampos. Pedreira de granito. Muitos prisioneiros evacuados em marchas da morte.",
+    "natzweiler": "Único campo de concentração em território francês. Utilizado para experiências médicas. Câmara de gás construída para experiências.",
+    "theresienstadt": "Campo de propaganda nazi mostrado à Cruz Vermelha. 140.000 judeus detidos; 90.000 deportados para campos de extermínio. Rica vida cultural organizada pelos prisioneiros.",
+    "westerbork": "Principal campo de trânsito holandês. Anne Frank e a família foram deportados daqui. 107.000 judeus enviados para campos de extermínio.",
+    "drancy": "Principal campo de trânsito francês. 65.000 judeus deportados para campos de extermínio. Situado num subúrbio parisiense.",
+    "mechelen": "Principal campo de trânsito belga. 25.000 judeus e 350 Roma deportados. Apenas 1.200 sobreviveram à guerra.",
+    "fossoli": "Principal campo de trânsito italiano. Primo Levi foi deportado daqui. 5.000 judeus enviados para Auschwitz.",
+    "monowitz": "Fábrica de borracha sintética da IG Farben. Prisioneiros trabalhados até à morte. Faz parte do complexo de Auschwitz.",
+    "dora-mittelbau": "Fábrica subterrânea de foguetes V-2. Prisioneiros trabalhavam em túneis em condições horríveis.",
+    "plaszow": "Retratado em A Lista de Schindler. O comandante Amon Göth executava prisioneiros por diversão.",
+    "janowska": "Campo combinado de trabalho e extermínio. Execuções em massa numa ravina próxima."
   },
   "footer": {
     "neverForget": "Nunca Esquecer. Nunca Mais.",
     "credits": "Fotografias históricas cedidas pelo USHMM, Museu Imperial da Guerra e Wikimedia Commons (domínio público)"
+  },
+  "closing": {
+    "quote": "Quem não consegue lembrar o passado está condenado a repeti-lo.",
+    "attribution": "— George Santayana",
+    "p1": "O Holocausto não foi inevitável. Em cada etapa, foram feitas escolhas — por líderes, por instituições, por pessoas comuns. Compreender como aconteceu é o primeiro passo para garantir que nunca volte a acontecer.",
+    "p2": "Pararam-no então. Pessoas lutaram, sangraram e morreram para acabar com o genocídio. Os princípios de Nuremberga estabeleceram que alguns crimes são tão terríveis que nenhuma ordem os justifica, nenhum governo protege os culpados.",
+    "p3": "Recordamos os seis milhões de judeus e milhões de outros que foram assassinados. Honramos os sobreviventes que partilharam as suas histórias. Honramos os que os libertaram. Comprometemo-nos a vigiar contra o ódio, a discriminação e as forças que permitem o genocídio.",
+    "neverForget": "Nunca Esquecer · Nunca Mais"
   },
   "eventData": {
     "armistice-1918": {
@@ -78,7 +129,14 @@
         "attribution": "General Erich Ludendorff"
       },
       "whyThisMatters": "O trauma nacional e as teorias da conspiração prepararam o terreno para o extremismo. Quando as sociedades procuram bodes expiatórios para os seus fracassos coletivos, as minorias tornam-se alvos.",
-      "relatedEvents": [{ "id": "versailles-1919", "label": "Tratado de Versalhes" }]
+      "relatedEvents": [{ "id": "versailles-1919", "label": "Tratado de Versalhes" }],
+      "captions": [
+        "A assinatura do Armistício numa carruagem de comboio em Compiègne, França",
+        "Soldados alemães derrotados regressam a uma nação em caos",
+        "Agitação revolucionária toma conta de Berlim nos últimos dias da guerra",
+        "As nações aliadas celebram o fim da Grande Guerra enquanto a Alemanha enfrenta a humilhação",
+        "Milhões regressaram a casa física e psicologicamente destruídos"
+      ]
     },
     "versailles-1919": {
       "month": "Junho",
@@ -102,6 +160,11 @@
       "relatedEvents": [
         { "id": "armistice-1918", "label": "O Armistício" },
         { "id": "hyperinflation-1923", "label": "Crise de Hiperinflação" }
+      ],
+      "captions": [
+        "O Tratado é assinado na Galeria dos Espelhos, onde o Império Alemão foi proclamado em 1871",
+        "A delegação alemã foi excluída das negociações e forçada a aceitar todos os termos",
+        "Os alemães protestam contra o \"Diktat\" de Versalhes"
       ]
     },
     "hyperinflation-1923": {
@@ -125,6 +188,11 @@
       "relatedEvents": [
         { "id": "versailles-1919", "label": "Tratado de Versalhes" },
         { "id": "beer-hall-putsch-1923", "label": "Putsch da Cervejaria" }
+      ],
+      "captions": [
+        "A moeda tornou-se tão sem valor que era mais barato queimá-la do que lenha",
+        "Crianças brincam com pilhas de notas sem valor",
+        "Os alemães fazem fila durante horas para obter bens de primeira necessidade"
       ]
     },
     "beer-hall-putsch-1923": {
@@ -149,6 +217,11 @@
       "relatedEvents": [
         { "id": "hyperinflation-1923", "label": "Crise de Hiperinflação" },
         { "id": "hitler-chancellor-1933", "label": "Hitler Torna-se Chanceler" }
+      ],
+      "captions": [
+        "A Bürgerbräukeller onde Hitler lançou a sua tentativa de golpe",
+        "Marchistas nazis avançam em direção à Feldherrnhalle",
+        "Hitler usou o seu julgamento como plataforma de propaganda"
       ]
     },
     "wall-street-crash-1929": {
@@ -172,6 +245,11 @@
       "whyThisMatters": "As crises económicas tornam as democracias vulneráveis. Quando os partidos do mainstream não conseguem resolver os problemas, os eleitores recorrem a extremistas que prometem soluções simples.",
       "relatedEvents": [
         { "id": "hitler-chancellor-1933", "label": "Hitler Torna-se Chanceler" }
+      ],
+      "captions": [
+        "Pânico em Wall Street enquanto os mercados colapsam",
+        "Milhões de alemães perderam os empregos quando a Depressão chegou",
+        "A adesão ao Partido Nazi disparou durante a crise económica"
       ]
     },
     "hitler-chancellor-1933": {
@@ -196,6 +274,11 @@
       "relatedEvents": [
         { "id": "reichstag-fire-1933", "label": "Incêndio do Reichstag" },
         { "id": "enabling-act-1933", "label": "Ato de Habilitação" }
+      ],
+      "captions": [
+        "Hitler cumprimenta apoiantes da janela da Chancelaria do Reich",
+        "Tropas SA marcham pelo Portão de Brandenburgo celebrando a nomeação de Hitler",
+        "O Presidente Hindenburg nomeou Hitler Chanceler, acreditando que poderia ser controlado"
       ]
     },
     "reichstag-fire-1933": {
@@ -220,6 +303,11 @@
       "relatedEvents": [
         { "id": "hitler-chancellor-1933", "label": "Hitler Torna-se Chanceler" },
         { "id": "enabling-act-1933", "label": "Ato de Habilitação" }
+      ],
+      "captions": [
+        "O edifício do Parlamento alemão arde na noite de 27 de fevereiro",
+        "O interior destruído da câmara do Reichstag",
+        "Decreto de emergência suspende as liberdades civis \"para a proteção do povo\""
       ]
     },
     "enabling-act-1933": {
@@ -244,6 +332,11 @@
       "relatedEvents": [
         { "id": "reichstag-fire-1933", "label": "Incêndio do Reichstag" },
         { "id": "book-burning-1933", "label": "Queima de Livros" }
+      ],
+      "captions": [
+        "O Reichstag reúne-se na Ópera Kroll para votar o Ato de Habilitação",
+        "Tropas SA e SS rodearam o edifício, intimidando os legisladores",
+        "Otto Wels proferiu o último discurso livre no parlamento alemão"
       ]
     },
     "book-burning-1933": {
@@ -268,6 +361,11 @@
       "relatedEvents": [
         { "id": "enabling-act-1933", "label": "Ato de Habilitação" },
         { "id": "nuremberg-laws-1935", "label": "Leis de Nuremberga" }
+      ],
+      "captions": [
+        "Estudantes e tropas SA queimam livros \"não alemães\" na Opernplatz de Berlim",
+        "Milhares reuniram-se para ver enquanto livros de autores judeus e \"degenerados\" eram destruídos",
+        "Estudantes universitários lideraram as queimas, demonstrando como a educação pode ser corrompida"
       ]
     },
     "nuremberg-laws-1935": {
@@ -292,6 +390,11 @@
       "relatedEvents": [
         { "id": "book-burning-1933", "label": "Queima de Livros" },
         { "id": "kristallnacht-1938", "label": "Kristallnacht" }
+      ],
+      "captions": [
+        "As leis foram anunciadas no Comício Anual do Partido Nazi em Nuremberga",
+        "Tabelas como esta classificavam as pessoas pelo \"grau de sangue\" para determinar quem era judeu",
+        "Cartazes \"Judeus Não São Bem-Vindos\" apareceram em toda a Alemanha"
       ]
     },
     "kristallnacht-1938": {
@@ -316,6 +419,13 @@
       "relatedEvents": [
         { "id": "nuremberg-laws-1935", "label": "Leis de Nuremberga" },
         { "id": "war-begins-1939", "label": "Início da Segunda Guerra Mundial" }
+      ],
+      "captions": [
+        "Mais de 1.400 sinagogas foram incendiadas em toda a Alemanha e Áustria — os bombeiros protegiam apenas as propriedades vizinhas",
+        "Os vidros partidos que deram nome ao pogrom cobriam as ruas de todas as cidades alemãs",
+        "Os negócios de proprietários judeus foram sistematicamente saqueados e destruídos",
+        "30.000 homens judeus foram detidos e enviados para campos de concentração",
+        "Os bombeiros foram ordenados a deixar os edifícios judeus arder — protegendo apenas a propriedade ariana"
       ]
     },
     "war-begins-1939": {
@@ -340,6 +450,11 @@
       "relatedEvents": [
         { "id": "kristallnacht-1938", "label": "Kristallnacht" },
         { "id": "ghettos-1940", "label": "Criação dos Guetos" }
+      ],
+      "captions": [
+        "As forças alemãs atravessam a fronteira polaca a 1 de setembro de 1939",
+        "Varsóvia é devastada pelos bombardeamentos aéreos alemães",
+        "Os 3,3 milhões de judeus da Polónia ficam sob controlo nazi"
       ]
     },
     "ghettos-1940": {
@@ -363,6 +478,12 @@
       "relatedEvents": [
         { "id": "war-begins-1939", "label": "Início da Segunda Guerra Mundial" },
         { "id": "operation-barbarossa-1941", "label": "Operação Barbarossa" }
+      ],
+      "captions": [
+        "O Gueto de Varsóvia foi selado por um muro de 3 metros com arame farpado",
+        "Mais de 400.000 pessoas foram comprimidas em 3,4 km²",
+        "A fome era uma política deliberada dos nazis",
+        "A morte por fome e doença tornou-se comum"
       ]
     },
     "operation-barbarossa-1941": {
@@ -387,6 +508,11 @@
       "relatedEvents": [
         { "id": "ghettos-1940", "label": "Criação dos Guetos" },
         { "id": "wannsee-conference-1942", "label": "Conferência de Wannsee" }
+      ],
+      "captions": [
+        "Três milhões de soldados alemães invadem a União Soviética",
+        "Os Einsatzgruppen assassinam judeus em fuzilamentos em massa no Leste ocupado",
+        "Babi Yar: 33.771 judeus assassinados em dois dias nesta ravina perto de Quieve"
       ]
     },
     "wannsee-conference-1942": {
@@ -411,6 +537,11 @@
       "relatedEvents": [
         { "id": "operation-barbarossa-1941", "label": "Operação Barbarossa" },
         { "id": "death-camps-1942", "label": "Campos da Morte" }
+      ],
+      "captions": [
+        "Esta elegante vila à beira do lago foi o local da conferência",
+        "Quinze altos funcionários nazis participaram na reunião de 90 minutos",
+        "A única cópia sobrevivente das atas da conferência"
       ]
     },
     "death-camps-1942": {
@@ -434,6 +565,12 @@
       "relatedEvents": [
         { "id": "wannsee-conference-1942", "label": "Conferência de Wannsee" },
         { "id": "liberation-1945", "label": "Libertação" }
+      ],
+      "captions": [
+        "A entrada de Auschwitz-Birkenau, o maior centro de extermínio",
+        "Médicos SS selecionavam quem seria morto imediatamente e quem seria trabalhado até à morte",
+        "437.000 judeus húngaros foram deportados para Auschwitz em 1944",
+        "Os crematórios funcionavam a toda a hora"
       ]
     },
     "liberation-1945": {
@@ -456,6 +593,12 @@
       "whyThisMatters": "O Holocausto não é história antiga. Os sobreviventes ainda estão vivos. As lições são urgentes. Os sinais de aviso são reconhecíveis. Nunca devemos esquecer — e nunca devemos permitir que aconteça novamente.",
       "relatedEvents": [
         { "id": "death-camps-1942", "label": "Campos da Morte" }
+      ],
+      "captions": [
+        "As forças soviéticas libertam Auschwitz a 27 de janeiro de 1945",
+        "Sobreviventes atrás do arame farpado em Buchenwald",
+        "As tropas britânicas descobriram milhares de cadáveres insepultos em Bergen-Belsen",
+        "O General Eisenhower ordenou às tropas que testemunhassem os campos: \"Registem tudo...para que não haja esquecimento.\""
       ]
     },
     "d-day-1944": {
@@ -481,6 +624,13 @@
       "relatedEvents": [
         { "id": "bergen-belsen-1945", "label": "Libertação de Bergen-Belsen" },
         { "id": "germany-surrenders-1945", "label": "A Alemanha Rende-se" }
+      ],
+      "captions": [
+        "A maior invasão anfíbia da história começa",
+        "Soldados abrigam-se atrás das defesas alemãs em Omaha Beach",
+        "Os socorristas trabalham para evacuar os feridos sob fogo inimigo",
+        "O custo humano da libertação visível em Omaha Beach",
+        "Após assegurar as praias, as tropas avançam pela França ocupada"
       ]
     },
     "auschwitz-liberation-1945": {
@@ -506,6 +656,13 @@
       "relatedEvents": [
         { "id": "bergen-belsen-1945", "label": "Libertação de Bergen-Belsen" },
         { "id": "death-camps-1942", "label": "Campos da Morte" }
+      ],
+      "captions": [
+        "Tropas soviéticas do 60.º Exército libertam Auschwitz",
+        "Sobreviventes, mal vivos, aguardam a libertação",
+        "Provas do assassínio em escala industrial: armazéns com pertences das vítimas",
+        "Crianças sobreviventes mostram os números tatuados nos braços",
+        "As portas do inferno: entrada ferroviária de Auschwitz-Birkenau"
       ]
     },
     "bergen-belsen-1945": {
@@ -531,6 +688,13 @@
       "relatedEvents": [
         { "id": "auschwitz-liberation-1945", "label": "Libertação de Auschwitz" },
         { "id": "germany-surrenders-1945", "label": "A Alemanha Rende-se" }
+      ],
+      "captions": [
+        "A 11.ª Divisão Blindada britânica entra em Bergen-Belsen",
+        "A escala da morte era incompreensível para os libertadores",
+        "As equipas médicas trabalharam desesperadamente para salvar os sobreviventes",
+        "Os corpos tiveram de ser enterrados rapidamente para prevenir uma epidemia",
+        "Memorial de Bergen-Belsen: Onde Anne Frank está enterrada"
       ]
     },
     "germany-surrenders-1945": {
@@ -556,6 +720,13 @@
       "relatedEvents": [
         { "id": "d-day-1944", "label": "Dia D" },
         { "id": "nuremberg-trials-1945", "label": "Julgamentos de Nuremberga" }
+      ],
+      "captions": [
+        "A Alemanha assina o instrumento de capitulação incondicional",
+        "Celebrações em Londres — mas para os sobreviventes, a dor permanecia",
+        "A icónica imagem da vitória soviética sobre a Alemanha Nazi",
+        "Os sobreviventes celebram — aqueles que viveram para ver este dia",
+        "Os portões estão abertos — o pesadelo acabou"
       ]
     },
     "nuremberg-trials-1945": {
@@ -581,6 +752,13 @@
       "relatedEvents": [
         { "id": "d-day-1944", "label": "Dia D" },
         { "id": "germany-surrenders-1945", "label": "A Alemanha Rende-se" }
+      ],
+      "captions": [
+        "Os arquitetos do genocídio enfrentam o julgamento",
+        "O Juiz Robert Jackson apresenta o caso em nome da humanidade",
+        "Imagens dos campos de concentração apresentadas como prova — os réus forçados a assistir",
+        "Até os próprios perpetradores não conseguiram confrontar o que tinham feito",
+        "Onde 10 líderes nazis foram executados a 16 de outubro de 1946"
       ]
     }
   }

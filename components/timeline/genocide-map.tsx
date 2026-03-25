@@ -2,6 +2,7 @@
 
 import { useState, useMemo, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useTranslations } from 'next-intl';
 import {
   ComposableMap,
   Geographies,
@@ -34,6 +35,7 @@ interface TooltipData {
 }
 
 export function GenocideMap() {
+  const t = useTranslations('map');
   const [activeFilters, setActiveFilters] = useState<Record<CampType, boolean>>({
     death: true,
     concentration: true,
@@ -98,10 +100,10 @@ export function GenocideMap() {
           className="text-center"
         >
           <h2 className="font-serif text-3xl lg:text-5xl text-[#e8e8e8] mb-4">
-            Geography of Genocide
+            {t('title')}
           </h2>
           <p className="text-lg text-[#888] max-w-2xl mx-auto">
-            The network of camps across Nazi-occupied Europe, 1933-1945
+            {t('subtitle')}
           </p>
         </motion.div>
       </div>
@@ -109,55 +111,44 @@ export function GenocideMap() {
       {/* Map Container */}
       <div className="relative max-w-7xl mx-auto px-4">
         <div className="relative bg-[#0d0d0d] border border-[#1a1a1a] rounded-sm overflow-hidden">
-          {/* Statistics Panel - Top Left */}
-          <div className="absolute top-4 left-4 z-10 bg-black/80 backdrop-blur-sm border border-[#2a2a2a] rounded-sm p-4 min-w-[200px]">
-            <h3 className="text-xs uppercase tracking-wider text-[#666] mb-3">Statistics</h3>
+
+          {/* Statistics Panel - Top Left — desktop only */}
+          <div className="hidden sm:block absolute top-4 left-4 z-10 bg-black/80 backdrop-blur-sm border border-[#2a2a2a] rounded-sm p-4 min-w-[200px]">
+            <h3 className="text-xs uppercase tracking-wider text-[#666] mb-3">{t('statistics')}</h3>
             <div className="space-y-2 text-sm">
               <div className="flex justify-between">
-                <span className="text-[#888]">Camps Shown:</span>
+                <span className="text-[#888]">{t('campsShown')}:</span>
                 <span className="text-[#e8e8e8] font-medium tabular-nums">{stats.campCount}</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-[#888]">Total Deaths:</span>
+                <span className="text-[#888]">{t('totalDeaths')}:</span>
                 <span className="text-[#e8e8e8] font-medium tabular-nums">~{formatDeaths(stats.totalDeaths)}</span>
               </div>
               {stats.mostDeadly && (
                 <div className="flex justify-between">
-                  <span className="text-[#888]">Most Deadly:</span>
+                  <span className="text-[#888]">{t('mostDeadly')}:</span>
                   <span className="text-[#dc2626] font-medium text-xs">{stats.mostDeadly.name}</span>
                 </div>
               )}
               <div className="flex justify-between">
-                <span className="text-[#888]">Peak Operation:</span>
+                <span className="text-[#888]">{t('peakOperation')}:</span>
                 <span className="text-[#e8e8e8] font-medium">1942-1944</span>
               </div>
             </div>
           </div>
 
-          {/* Filters - Top Right */}
-          <div className="absolute top-4 right-4 z-10 bg-black/80 backdrop-blur-sm border border-[#2a2a2a] rounded-sm p-4">
-            <h3 className="text-xs uppercase tracking-wider text-[#666] mb-3">Filter Camps</h3>
+          {/* Filters - Top Right — desktop only */}
+          <div className="hidden sm:block absolute top-4 right-4 z-10 bg-black/80 backdrop-blur-sm border border-[#2a2a2a] rounded-sm p-4">
+            <h3 className="text-xs uppercase tracking-wider text-[#666] mb-3">{t('filterCamps')}</h3>
             <div className="space-y-2">
               {(Object.keys(campTypeInfo) as CampType[]).map(type => (
-                <label
-                  key={type}
-                  className="flex items-center gap-3 cursor-pointer group"
-                >
-                  <input
-                    type="checkbox"
-                    checked={activeFilters[type]}
-                    onChange={() => handleFilterToggle(type)}
-                    className="sr-only"
-                  />
+                <label key={type} className="flex items-center gap-3 cursor-pointer group">
+                  <input type="checkbox" checked={activeFilters[type]} onChange={() => handleFilterToggle(type)} className="sr-only" />
                   <div
                     className={`w-4 h-4 rounded-sm border-2 flex items-center justify-center transition-colors ${
-                      activeFilters[type]
-                        ? 'border-transparent'
-                        : 'border-[#444] group-hover:border-[#666]'
+                      activeFilters[type] ? 'border-transparent' : 'border-[#444] group-hover:border-[#666]'
                     }`}
-                    style={{
-                      backgroundColor: activeFilters[type] ? campTypeInfo[type].color : 'transparent',
-                    }}
+                    style={{ backgroundColor: activeFilters[type] ? campTypeInfo[type].color : 'transparent' }}
                   >
                     {activeFilters[type] && (
                       <svg className="w-3 h-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -166,34 +157,31 @@ export function GenocideMap() {
                     )}
                   </div>
                   <span className="text-sm text-[#aaa] group-hover:text-[#e8e8e8] transition-colors">
-                    {campTypeInfo[type].label}
+                    {t(type as 'death' | 'concentration' | 'transit' | 'labor')}
                   </span>
                 </label>
               ))}
             </div>
           </div>
 
-          {/* Legend - Bottom Left */}
-          <div className="absolute bottom-4 left-4 z-10 bg-black/80 backdrop-blur-sm border border-[#2a2a2a] rounded-sm p-4">
-            <h3 className="text-xs uppercase tracking-wider text-[#666] mb-3">Legend</h3>
+          {/* Legend - Bottom Left — desktop only */}
+          <div className="hidden sm:block absolute bottom-4 left-4 z-10 bg-black/80 backdrop-blur-sm border border-[#2a2a2a] rounded-sm p-4">
+            <h3 className="text-xs uppercase tracking-wider text-[#666] mb-3">{t('legend')}</h3>
             <div className="space-y-2">
               {(Object.keys(campTypeInfo) as CampType[]).map(type => (
                 <div key={type} className="flex items-center gap-2">
-                  <div
-                    className="w-3 h-3 rounded-full"
-                    style={{ backgroundColor: campTypeInfo[type].color }}
-                  />
-                  <span className="text-xs text-[#888]">{campTypeInfo[type].label}</span>
+                  <div className="w-3 h-3 rounded-full" style={{ backgroundColor: campTypeInfo[type].color }} />
+                  <span className="text-xs text-[#888]">{t(type as 'death' | 'concentration' | 'transit' | 'labor')}</span>
                 </div>
               ))}
               <div className="pt-2 mt-2 border-t border-[#2a2a2a]">
-                <p className="text-[10px] text-[#666] italic">Circle size = death toll</p>
+                <p className="text-[10px] text-[#666] italic">{t('circleSizeNote')}</p>
               </div>
             </div>
           </div>
 
           {/* Map */}
-          <div className="h-[400px] lg:h-[600px]">
+          <div className="h-[280px] sm:h-[400px] lg:h-[600px]">
             <ComposableMap
               projection="geoMercator"
               projectionConfig={{
@@ -265,7 +253,7 @@ export function GenocideMap() {
           </div>
 
           {/* Zoom Controls */}
-          <div className="absolute bottom-4 right-4 z-10 flex flex-col gap-1">
+          <div className="absolute bottom-4 right-4 z-10 flex flex-col gap-1.5">
             <button
               onClick={() => setPosition(prev => ({ ...prev, zoom: Math.min(prev.zoom * 1.5, 10) }))}
               className="w-8 h-8 bg-black/80 border border-[#2a2a2a] rounded-sm flex items-center justify-center text-[#888] hover:text-white hover:bg-[#1a1a1a] transition-colors"
@@ -296,9 +284,73 @@ export function GenocideMap() {
           </div>
         </div>
 
+        {/* Mobile info panel — visible only on small screens */}
+        <div className="sm:hidden border border-[#1a1a1a] border-t-0 bg-[#0d0d0d]">
+
+          {/* Stats row */}
+          <div className="grid grid-cols-2 gap-px bg-[#1a1a1a]">
+            <div className="bg-[#0d0d0d] p-3">
+              <p className="text-[10px] uppercase tracking-wider text-[#555] mb-0.5">{t('campsShown')}</p>
+              <p className="text-base font-bold text-[#e8e8e8] tabular-nums">{stats.campCount}</p>
+            </div>
+            <div className="bg-[#0d0d0d] p-3">
+              <p className="text-[10px] uppercase tracking-wider text-[#555] mb-0.5">{t('totalDeaths')}</p>
+              <p className="text-base font-bold text-[#dc2626] tabular-nums">~{formatDeaths(stats.totalDeaths)}</p>
+            </div>
+            {stats.mostDeadly && (
+              <div className="bg-[#0d0d0d] p-3">
+                <p className="text-[10px] uppercase tracking-wider text-[#555] mb-0.5">{t('mostDeadly')}</p>
+                <p className="text-sm font-medium text-[#dc2626]">{stats.mostDeadly.name}</p>
+              </div>
+            )}
+            <div className="bg-[#0d0d0d] p-3">
+              <p className="text-[10px] uppercase tracking-wider text-[#555] mb-0.5">{t('peakOperation')}</p>
+              <p className="text-base font-bold text-[#e8e8e8]">1942–1944</p>
+            </div>
+          </div>
+
+          {/* Filters */}
+          <div className="p-4 border-t border-[#1a1a1a]">
+            <p className="text-[10px] uppercase tracking-wider text-[#555] mb-3">{t('filterCamps')}</p>
+            <div className="grid grid-cols-2 gap-y-3 gap-x-4">
+              {(Object.keys(campTypeInfo) as CampType[]).map(type => (
+                <label key={type} className="flex items-center gap-2.5 cursor-pointer active:opacity-70">
+                  <input type="checkbox" checked={activeFilters[type]} onChange={() => handleFilterToggle(type)} className="sr-only" />
+                  <div
+                    className={`w-5 h-5 rounded-sm border-2 flex items-center justify-center shrink-0 transition-colors ${
+                      activeFilters[type] ? 'border-transparent' : 'border-[#444]'
+                    }`}
+                    style={{ backgroundColor: activeFilters[type] ? campTypeInfo[type].color : 'transparent' }}
+                  >
+                    {activeFilters[type] && (
+                      <svg className="w-3 h-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                      </svg>
+                    )}
+                  </div>
+                  <span className="text-sm text-[#aaa]">{t(type as 'death' | 'concentration' | 'transit' | 'labor')}</span>
+                </label>
+              ))}
+            </div>
+          </div>
+
+          {/* Legend */}
+          <div className="px-4 pb-4 border-t border-[#1a1a1a] pt-3">
+            <div className="flex flex-wrap gap-x-4 gap-y-2">
+              {(Object.keys(campTypeInfo) as CampType[]).map(type => (
+                <div key={type} className="flex items-center gap-1.5">
+                  <div className="w-2.5 h-2.5 rounded-full shrink-0" style={{ backgroundColor: campTypeInfo[type].color }} />
+                  <span className="text-xs text-[#888]">{t(type as 'death' | 'concentration' | 'transit' | 'labor')}</span>
+                </div>
+              ))}
+            </div>
+            <p className="text-[10px] text-[#555] italic mt-2">{t('circleSizeNote')}</p>
+          </div>
+        </div>
+
         {/* Map Caption */}
         <p className="mt-4 text-center text-sm text-[#666] italic">
-          Click on any camp marker for detailed information. Zoom and pan to explore.
+          {t('mapCaption')}
         </p>
       </div>
 
@@ -329,16 +381,16 @@ export function GenocideMap() {
               </div>
               <div className="grid grid-cols-2 gap-2 text-xs">
                 <div>
-                  <span className="text-[#666]">Deaths:</span>
+                  <span className="text-[#666]">{t('deaths')}:</span>
                   <span className="text-[#dc2626] font-medium ml-1">{tooltip.camp.deaths.toLocaleString()}</span>
                 </div>
                 <div>
-                  <span className="text-[#666]">Dates:</span>
+                  <span className="text-[#666]">{t('dates')}:</span>
                   <span className="text-[#aaa] ml-1">{tooltip.camp.operationalDates}</span>
                 </div>
               </div>
               <p className="text-[10px] text-[#555] mt-2 pt-2 border-t border-[#2a2a2a]">
-                Click for more details
+                {t('clickForDetails')}
               </p>
             </div>
           </motion.div>
