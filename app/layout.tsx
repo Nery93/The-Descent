@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from 'next'
 import { Inter, Crimson_Text, Source_Serif_4 } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
+import { SpeedInsights } from '@vercel/speed-insights/next'
 import Footer from '@/components/Footer'
 import { LanguageProvider } from '@/components/language-provider'
 import { LanguageSwitcher } from '@/components/language-switcher'
@@ -195,6 +196,7 @@ export default function RootLayout({
           <LanguageSwitcher />
         </LanguageProvider>
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   )
