@@ -1,5 +1,8 @@
 # The Descent: 1918–1945
 
+<img width="2492" height="1307" alt="image" src="https://github.com/user-attachments/assets/adb24d33-1446-456a-93f3-18bc71d291ac" />
+
+
 > *"Those who cannot remember the past are condemned to repeat it."*
 > — George Santayana
 
