@@ -13,11 +13,16 @@
     "scrollToBegin": "Role para Começar"
   },
   "phases": {
+    "label": "Fase",
     "phase1": "As Sementes do Ódio",
     "phase2": "A Perseguição",
     "phase3": "O Genocídio",
     "phase4": "Libertação e Justiça",
-    "ofFour": "de 4"
+    "ofFour": "de 4",
+    "desc1": "Colapso económico, instabilidade política e a ascensão do extremismo",
+    "desc2": "Remoção sistemática de direitos, perseguição e a maquinaria da opressão",
+    "desc3": "O assassinato industrial de seis milhões de judeus e milhões de outros",
+    "desc4": "A queda do regime nazi, libertação dos sobreviventes e busca de justiça"
   },
   "events": {
     "clickToExplore": "Clique para explorar",
@@ -52,5 +57,531 @@
   "footer": {
     "neverForget": "Nunca Esquecer. Nunca Mais.",
     "credits": "Fotografias históricas cedidas pelo USHMM, Museu Imperial da Guerra e Wikimedia Commons (domínio público)"
+  },
+  "eventData": {
+    "armistice-1918": {
+      "month": "Novembro",
+      "title": "O Armistício",
+      "subtitle": "A Alemanha rende-se, pondo fim à Primeira Guerra Mundial",
+      "keyFacts": [
+        { "symbol": "✕", "text": "2 milhões de soldados alemães mortos na guerra" },
+        { "symbol": "⚠", "text": "O Kaiser Guilherme II abdica e foge para os Países Baixos" },
+        { "symbol": "◆", "text": "O mito da 'punhalada pelas costas' começa a circular entre os nacionalistas" }
+      ],
+      "context": [
+        "A 11 de novembro de 1918, a Alemanha assinou o Armistício que pôs fim à Primeira Guerra Mundial. A nação estava exausta, a morrer de fome devido ao bloqueio aliado, e a enfrentar uma revolução nas ruas. O Kaiser fugira, e a nova República de Weimar nasceu no meio do caos.",
+        "Para muitos alemães, o fim súbito da guerra pareceu uma traição. Tinham-lhes dito que estavam a ganhar. Esta dissonância daria origem ao mito da 'punhalada pelas costas' — a mentira venenosa de que a Alemanha não perdera militarmente, mas fora traída por judeus, socialistas e políticos.",
+        "Este mito, promovido por líderes militares que queriam evitar a responsabilidade, tornar-se-ia uma pedra angular da propaganda nazi e alimentaria as chamas do antissemitismo durante anos."
+      ],
+      "eyewitnessQuote": {
+        "text": "Não fomos derrotados no campo de batalha. Fomos apunhalados pelas costas pelos criminosos que agora governam a Alemanha.",
+        "attribution": "General Erich Ludendorff"
+      },
+      "whyThisMatters": "O trauma nacional e as teorias da conspiração prepararam o terreno para o extremismo. Quando as sociedades procuram bodes expiatórios para os seus fracassos coletivos, as minorias tornam-se alvos.",
+      "relatedEvents": [{ "id": "versailles-1919", "label": "Tratado de Versalhes" }]
+    },
+    "versailles-1919": {
+      "month": "Junho",
+      "title": "Tratado de Versalhes",
+      "subtitle": "A Alemanha humilhada por termos de paz punitivos",
+      "keyFacts": [
+        { "symbol": "⚖", "text": "Artigo 231: A Alemanha aceita a culpa exclusiva pela guerra" },
+        { "symbol": "✕", "text": "132 mil milhões de marcos ouro exigidos em reparações" },
+        { "symbol": "⚠", "text": "A Alemanha perde 13% do território e todas as colónias" }
+      ],
+      "context": [
+        "O Tratado de Versalhes foi concebido para punir a Alemanha e prevenir agressões futuras. A Alemanha perdeu territórios significativos, foi proibida de ter um exército eficaz, e foi sobrecarregada com pagamentos de reparações esmagadores.",
+        "O mais prejudicial foi o Artigo 231 — a 'Cláusula de Culpa de Guerra' — que obrigou a Alemanha a aceitar responsabilidade total pela guerra. Esta humilhação uniu os alemães de todo o espectro político no ressentimento.",
+        "O tratado criou as condições para o desastre económico e o extremismo político. Como o economista John Maynard Keynes alertou, os termos punitivos levariam a outra guerra em menos de uma geração. Tinha razão."
+      ],
+      "eyewitnessQuote": {
+        "text": "Isto não é paz. É um armistício por vinte anos.",
+        "attribution": "Marechal Ferdinand Foch"
+      },
+      "whyThisMatters": "Humilhar nações derrotadas gera ressentimento que os demagogos podem explorar. A paz punitiva raramente conduz à estabilidade duradoura.",
+      "relatedEvents": [
+        { "id": "armistice-1918", "label": "O Armistício" },
+        { "id": "hyperinflation-1923", "label": "Crise de Hiperinflação" }
+      ]
+    },
+    "hyperinflation-1923": {
+      "title": "Crise de Hiperinflação",
+      "subtitle": "A economia alemã colapsa",
+      "keyFacts": [
+        { "symbol": "◆", "text": "Um dólar americano = 4,2 biliões de marcos em novembro de 1923" },
+        { "symbol": "✕", "text": "As poupanças de toda uma vida tornaram-se inúteis de um dia para o outro" },
+        { "symbol": "⚠", "text": "Os trabalhadores eram pagos duas vezes por dia enquanto os preços subiam a cada hora" }
+      ],
+      "context": [
+        "Em novembro de 1923, o marco alemão tornara-se praticamente sem valor. Um pão custava milhões de marcos. As pessoas carregavam o dinheiro em carrinhos de mão. As poupanças evaporaram. A classe média foi destruída.",
+        "A crise tinha múltiplas causas: dívida de guerra, reparações e a ocupação francesa da região industrial do Ruhr. Mas as pessoas desesperadas precisavam de alguém a quem culpar.",
+        "A propaganda antissemita retratava os judeus como especuladores e aproveitadores da miséria alemã. Esta catástrofe económica radicalizou milhões que mais tarde apoiariam soluções extremas."
+      ],
+      "eyewitnessQuote": {
+        "text": "Carregávamos os salários em cestos de roupa suja. Quando chegávamos às lojas, o dinheiro valia metade do que tinha quando saímos da fábrica.",
+        "attribution": "Trabalhador fabril anónimo"
+      },
+      "whyThisMatters": "O colapso económico destrói a confiança nas instituições democráticas. Quando as pessoas perdem tudo, tornam-se recetivas a ideologias radicais que prometem a restauração.",
+      "relatedEvents": [
+        { "id": "versailles-1919", "label": "Tratado de Versalhes" },
+        { "id": "beer-hall-putsch-1923", "label": "Putsch da Cervejaria" }
+      ]
+    },
+    "beer-hall-putsch-1923": {
+      "month": "Novembro",
+      "title": "Putsch da Cervejaria",
+      "subtitle": "Tentativa falhada de golpe de estado de Hitler em Munique",
+      "keyFacts": [
+        { "symbol": "✕", "text": "16 nazis e 4 polícias mortos" },
+        { "symbol": "⚖", "text": "Hitler condenado a apenas 5 anos (cumpriu 9 meses)" },
+        { "symbol": "▶", "text": "Hitler escreve o Mein Kampf na prisão" }
+      ],
+      "context": [
+        "A 8 de novembro de 1923, Adolf Hitler e o Partido Nazi tentaram tomar o poder em Munique como primeiro passo para derrubar a República de Weimar. O golpe falhou e Hitler foi preso.",
+        "O tratamento leniente que Hitler recebeu revelou as simpatias da magistratura alemã. Em vez de ser deportado (era austríaco) ou receber uma pena severa, recebeu tempo mínimo de prisão e foi autorizado a escrever o seu manifesto.",
+        "No Mein Kampf, Hitler expôs a sua ideologia: nacionalismo extremo, antissemitismo racial, a necessidade de 'espaço vital' (Lebensraum) no Leste, e a destruição da democracia. Poucos o levaram a sério. Aprenderiam."
+      ],
+      "eyewitnessQuote": {
+        "text": "Podem declarar-nos culpados mil vezes, mas a deusa do tribunal eterno da história sorri e rasga o veredicto deste tribunal em pedaços.",
+        "attribution": "Adolf Hitler"
+      },
+      "whyThisMatters": "Quando extremistas violentos não enfrentam consequências reais, ficam encorajados. Instituições fracas e tribunais complacentes permitiram a ascensão posterior de Hitler.",
+      "relatedEvents": [
+        { "id": "hyperinflation-1923", "label": "Crise de Hiperinflação" },
+        { "id": "hitler-chancellor-1933", "label": "Hitler Torna-se Chanceler" }
+      ]
+    },
+    "wall-street-crash-1929": {
+      "month": "Outubro",
+      "title": "Crash de Wall Street",
+      "subtitle": "A depressão global devasta a Alemanha",
+      "keyFacts": [
+        { "symbol": "✕", "text": "6 milhões de alemães desempregados em 1932" },
+        { "symbol": "⚠", "text": "Empréstimos americanos retirados, a economia alemã colapsa" },
+        { "symbol": "▶", "text": "A percentagem de votos nazis sobe de 2,6% para 37%" }
+      ],
+      "context": [
+        "O Crash de Wall Street de outubro de 1929 desencadeou uma depressão global. A Alemanha, dependente de empréstimos americanos desde 1924, foi atingida de forma particularmente severa. À medida que os bancos americanos recolhiam os seus empréstimos, a economia alemã colapsou.",
+        "Em 1932, mais de seis milhões de alemães estavam desempregados — quase um terço da força de trabalho. Cantinas de caridade e filas do pão tornaram-se cenas comuns. Os partidos democráticos pareciam impotentes.",
+        "O Partido Nazi explorou a crise magistralmente. Prometiam empregos, restauravam o orgulho nacional e identificavam inimigos: judeus, comunistas e os 'criminosos de novembro' democráticos. Eleitores desesperados recorreram a eles em massa."
+      ],
+      "eyewitnessQuote": {
+        "text": "A democracia falhou. O sistema parlamentar está podre. Precisamos de uma mão forte para salvar a Alemanha.",
+        "attribution": "Empresário alemão anónimo"
+      },
+      "whyThisMatters": "As crises económicas tornam as democracias vulneráveis. Quando os partidos do mainstream não conseguem resolver os problemas, os eleitores recorrem a extremistas que prometem soluções simples.",
+      "relatedEvents": [
+        { "id": "hitler-chancellor-1933", "label": "Hitler Torna-se Chanceler" }
+      ]
+    },
+    "hitler-chancellor-1933": {
+      "month": "Janeiro",
+      "title": "Hitler Torna-se Chanceler",
+      "subtitle": "A democracia entrega o poder a um ditador",
+      "keyFacts": [
+        { "symbol": "⚖", "text": "Hitler nomeado legalmente pelo Presidente Hindenburg" },
+        { "symbol": "⚠", "text": "Os conservadores acreditavam que podiam controlá-lo" },
+        { "symbol": "▶", "text": "Em 18 meses, todos os outros partidos foram proibidos" }
+      ],
+      "context": [
+        "A 30 de janeiro de 1933, Adolf Hitler foi nomeado Chanceler da Alemanha através de processos legais e democráticos. O Presidente Hindenburg e os políticos conservadores acreditavam que podiam usar Hitler para destruir a esquerda enquanto o controlavam.",
+        "Estavam catastroficamente errados. Em semanas, Hitler começou a desmantelar a democracia. O incêndio do Reichstag deu-lhe o pretexto para suspender as liberdades civis. O Ato de Habilitação deu-lhe poderes ditatoriais.",
+        "Este momento revela uma lição crucial: as democracias podem votar para sair de si próprias. Hitler não tomou o poder num golpe — o poder foi-lhe entregue por aqueles que pensavam que o podiam usar para os seus próprios fins."
+      ],
+      "eyewitnessQuote": {
+        "text": "Em dois meses encurralámo-los de tal forma que tiveram de concordar com esta nomeação. Encaixámos Hitler.",
+        "attribution": "Franz von Papen, Vice-Chanceler"
+      },
+      "whyThisMatters": "As democracias podem ser destruídas por dentro através de meios legais. Nunca assuma que extremistas podem ser 'geridos' ou que vão moderar-se uma vez no poder.",
+      "relatedEvents": [
+        { "id": "reichstag-fire-1933", "label": "Incêndio do Reichstag" },
+        { "id": "enabling-act-1933", "label": "Ato de Habilitação" }
+      ]
+    },
+    "reichstag-fire-1933": {
+      "month": "Fevereiro",
+      "title": "Incêndio do Reichstag",
+      "subtitle": "O Parlamento arde, a democracia morre",
+      "keyFacts": [
+        { "symbol": "⚠", "text": "Atribuído a uma conspiração comunista sem provas" },
+        { "symbol": "⚖", "text": "Decreto de emergência suspende todas as liberdades civis" },
+        { "symbol": "✕", "text": "4.000 comunistas detidos em poucos dias" }
+      ],
+      "context": [
+        "A 27 de fevereiro de 1933, o edifício do Reichstag foi incendiado. Um jovem comunista holandês, Marinus van der Lubbe, foi detido no local. Os nazis culparam imediatamente uma conspiração comunista.",
+        "No dia seguinte, Hitler convenceu o Presidente Hindenburg a assinar o 'Decreto para a Proteção do Povo e do Estado'. Esta medida de emergência suspendeu a liberdade de expressão, de assembleia, de imprensa e de privacidade. Nunca foi revogada.",
+        "Se foram os próprios nazis que atearam o fogo permanece debatido pelos historiadores. O que é certo é que o exploraram brilhantemente para destruir a oposição e estabelecer um estado policial praticamente de um dia para o outro."
+      ],
+      "eyewitnessQuote": {
+        "text": "Este é um sinal enviado por Deus! Se este incêndio for obra dos comunistas, nada nos impedirá de esmagar esta praga assassina com punho de ferro.",
+        "attribution": "Adolf Hitler"
+      },
+      "whyThisMatters": "As crises — reais ou fabricadas — são usadas pelos autoritários para justificar medidas de 'emergência' que se tornam permanentes. O medo é a ferramenta dos tiranos.",
+      "relatedEvents": [
+        { "id": "hitler-chancellor-1933", "label": "Hitler Torna-se Chanceler" },
+        { "id": "enabling-act-1933", "label": "Ato de Habilitação" }
+      ]
+    },
+    "enabling-act-1933": {
+      "month": "Março",
+      "title": "O Ato de Habilitação",
+      "subtitle": "O Parlamento vota a sua própria dissolução",
+      "keyFacts": [
+        { "symbol": "⚖", "text": "Aprovado por 444-94, apenas o SPD votou contra" },
+        { "symbol": "⚠", "text": "Deputados comunistas já detidos ou escondidos" },
+        { "symbol": "▶", "text": "Hitler pode agora governar por decreto sem o parlamento" }
+      ],
+      "context": [
+        "A 23 de março de 1933, o Reichstag votou para aprovar o Ato de Habilitação, que deu a Hitler o poder de promulgar leis sem aprovação parlamentar. A república democrática abolira-se legalmente a si própria.",
+        "A votação decorreu numa atmosfera de terror. Tropas SA rodeavam o edifício. Os deputados comunistas tinham sido presos após o incêndio do Reichstag. Apenas os Social-Democratas votaram contra, sabendo que estavam a assinar as suas próprias sentenças de morte políticas.",
+        "Otto Wels, líder dos Social-Democratas, proferiu o último discurso livre no parlamento alemão: 'Podem tirar-nos a vida e a liberdade, mas não nos podem tirar a honra.' Em meses, o seu partido foi proibido e ele estava no exílio."
+      ],
+      "eyewitnessQuote": {
+        "text": "A liberdade e a vida podem ser-nos tiradas. Mas não a nossa honra. Nenhum Ato de Habilitação lhe dá o poder de destruir ideias que são eternas e indestrutíveis.",
+        "attribution": "Otto Wels"
+      },
+      "whyThisMatters": "As assembleias legislativas podem votar contra a democracia. Quando o medo e o oportunismo suplantam o princípio, até órgãos democraticamente eleitos podem habilitar a ditadura.",
+      "relatedEvents": [
+        { "id": "reichstag-fire-1933", "label": "Incêndio do Reichstag" },
+        { "id": "book-burning-1933", "label": "Queima de Livros" }
+      ]
+    },
+    "book-burning-1933": {
+      "month": "Maio",
+      "title": "A Queima de Livros",
+      "subtitle": "\"Onde queimam livros, acabarão também por queimar pessoas\"",
+      "keyFacts": [
+        { "symbol": "✕", "text": "25.000 livros queimados só em Berlim" },
+        { "symbol": "⚠", "text": "Obras de Einstein, Freud, Mann e outros destruídas" },
+        { "symbol": "◆", "text": "Liderada por estudantes universitários, não por soldados" }
+      ],
+      "context": [
+        "A 10 de maio de 1933, estudantes universitários em toda a Alemanha queimaram livros considerados 'não alemães'. Obras de autores judeus, opositores políticos e qualquer pessoa considerada ideologicamente impura foram lançadas às chamas.",
+        "As queimas não foram ordenadas de cima — foram organizadas pelos estudantes, mostrando com que rapidez os jovens podiam ser radicalizados. Os professores assistiam com aprovação. A elite intelectual colaborou.",
+        "O poeta Heinrich Heine escrevera um século antes: 'Onde queimam livros, acabarão também por queimar pessoas.' As suas palavras revelar-se-iam tragicamente proféticas. Os seus próprios livros estavam entre os queimados."
+      ],
+      "eyewitnessQuote": {
+        "text": "A era do extremo intelectualismo judeu chegou ao fim. O estudante alemão tem o direito de limpar as bibliotecas do espírito não alemão.",
+        "attribution": "Joseph Goebbels"
+      },
+      "whyThisMatters": "A destruição da cultura precede a destruição das pessoas. Quando as sociedades começam a proibir ideias, estão num caminho perigoso.",
+      "relatedEvents": [
+        { "id": "enabling-act-1933", "label": "Ato de Habilitação" },
+        { "id": "nuremberg-laws-1935", "label": "Leis de Nuremberga" }
+      ]
+    },
+    "nuremberg-laws-1935": {
+      "month": "Setembro",
+      "title": "Leis de Nuremberga",
+      "subtitle": "Os judeus são privados da cidadania",
+      "keyFacts": [
+        { "symbol": "⚖", "text": "Judeus legalmente definidos e privados da cidadania alemã" },
+        { "symbol": "⚠", "text": "O casamento entre judeus e não-judeus proibido" },
+        { "symbol": "◆", "text": "As relações sexuais entre grupos tornaram-se um crime" }
+      ],
+      "context": [
+        "As Leis de Nuremberga de setembro de 1935 codificaram a ideologia racial nazi em lei. Os judeus foram privados da cidadania alemã e proibidos de casar ou ter relações sexuais com 'arianos'.",
+        "As leis exigiam classificações raciais complexas. Quem era judeu? Quem era um 'Mischling' (sangue misto)? Os burocratas criaram tabelas elaboradas rastreando a ascendência através de gerações. A maquinaria da discriminação exigia papelada.",
+        "Estas leis serviram de modelo para a segregação racial noutros locais e mostraram como a discriminação podia ser sistematizada através de meios legais. Tornaram a perseguição ordeira, racional, burocrática."
+      ],
+      "eyewitnessQuote": {
+        "text": "Com um traço de caneta, deixei de ser alemão. Nascera na Alemanha, o meu pai morreu pela Alemanha na guerra, mas agora era legalmente nada.",
+        "attribution": "Victor Klemperer"
+      },
+      "whyThisMatters": "A discriminação legal normaliza a perseguição. Quando o Estado codifica o ódio em lei, sinaliza que a violência é aceitável e remove as proteções legais para as minorias.",
+      "relatedEvents": [
+        { "id": "book-burning-1933", "label": "Queima de Livros" },
+        { "id": "kristallnacht-1938", "label": "Kristallnacht" }
+      ]
+    },
+    "kristallnacht-1938": {
+      "month": "Novembro",
+      "title": "Kristallnacht",
+      "subtitle": "A Noite dos Cristais Partidos",
+      "keyFacts": [
+        { "symbol": "✕", "text": "Pelo menos 91 judeus assassinados; o número real provavelmente maior" },
+        { "symbol": "✕", "text": "30.000 homens judeus enviados para campos de concentração" },
+        { "symbol": "⚖", "text": "Judeus multados em 1 mil milhão de marcos pelos danos feitos a eles" }
+      ],
+      "context": [
+        "Na noite de 9 para 10 de novembro de 1938, turbas organizadas pelos nazis percorreram a Alemanha e a Áustria, atacando judeus, destruindo sinagogas e saqueando negócios judeus. Os vidros partidos que cobriam as ruas deram nome ao pogrom.",
+        "A violência foi apresentada como uma reação 'espontânea' ao assassinato de um diplomata alemão por um adolescente judeu. Na realidade, foi cuidadosamente orquestrada pela liderança nazi para testar a reação pública à violência aberta.",
+        "Numa reviravolta cruel, a comunidade judaica foi multada em mil milhões de Reichsmarks para pagar pelos danos. Os judeus também foram proibidos de possuir negócios ou frequentar escolas alemãs. O laço estava a apertar."
+      ],
+      "eyewitnessQuote": {
+        "text": "Vi a sinagoga a arder, e as pessoas à volta, a ver, a rir. Os bombeiros estavam lá — mas apenas protegiam os edifícios vizinhos. Não o nosso.",
+        "attribution": "Sobrevivente anónimo"
+      },
+      "whyThisMatters": "A violência organizada pelo Estado testa o que as populações toleram. Quando os espetadores não fazem nada, os perpetradores ficam encorajados a escalar.",
+      "relatedEvents": [
+        { "id": "nuremberg-laws-1935", "label": "Leis de Nuremberga" },
+        { "id": "war-begins-1939", "label": "Início da Segunda Guerra Mundial" }
+      ]
+    },
+    "war-begins-1939": {
+      "month": "Setembro",
+      "title": "O Início da Segunda Guerra Mundial",
+      "subtitle": "A Alemanha invade a Polónia",
+      "keyFacts": [
+        { "symbol": "✕", "text": "A Polónia cai em cinco semanas" },
+        { "symbol": "⚠", "text": "3,3 milhões de judeus polacos agora sob domínio nazi" },
+        { "symbol": "▶", "text": "A Grã-Bretanha e a França declaram guerra à Alemanha" }
+      ],
+      "context": [
+        "A 1 de setembro de 1939, a Alemanha invadiu a Polónia, desencadeando a Segunda Guerra Mundial. A Polónia caiu em cinco semanas. Para os judeus da Europa, isto foi catastrófico: mais de três milhões de judeus polacos ficaram sob controlo nazi.",
+        "A conquista da Polónia representou uma escalada fundamental. Aqui, longe do escrutínio alemão, os nazis começariam a experimentar o assassínio em massa numa escala anteriormente inimaginável.",
+        "Os Einsatzgruppen — esquadrões móveis de extermínio — seguiram o exército alemão para a Polónia, executando milhares de intelectuais, padres e judeus polacos. Estes foram os primeiros passos em direção ao genocídio."
+      ],
+      "eyewitnessQuote": {
+        "text": "Não tenho intenção de conduzir esta guerra de forma cavalheiresca. Destruirei o inimigo. Usarei todos os meios ao meu dispor.",
+        "attribution": "Adolf Hitler"
+      },
+      "whyThisMatters": "A guerra serve de cobertura para as atrocidades. O caos, o sigilo e a brutalização da guerra permitiram o Holocausto de formas que a perseguição em tempo de paz não poderia.",
+      "relatedEvents": [
+        { "id": "kristallnacht-1938", "label": "Kristallnacht" },
+        { "id": "ghettos-1940", "label": "Criação dos Guetos" }
+      ]
+    },
+    "ghettos-1940": {
+      "title": "Criação dos Guetos",
+      "subtitle": "Judeus aprisionados em bairros vedados",
+      "keyFacts": [
+        { "symbol": "✕", "text": "Gueto de Varsóvia: 400.000 judeus em 3,4 km²" },
+        { "symbol": "◆", "text": "Ração alimentar média: 184 calorias por dia" },
+        { "symbol": "✕", "text": "Dezenas de milhares morreram antes do início das deportações" }
+      ],
+      "context": [
+        "A partir de 1940, os nazis estabeleceram guetos em toda a Europa oriental ocupada. Os judeus foram expulsos das suas casas e concentrados em pequenos bairros vedados em condições brutais.",
+        "O Gueto de Varsóvia, o maior, albergava mais de 400.000 judeus numa área de 3,4 km². A ração alimentar oficial fornecia menos de 200 calorias por dia. As doenças eram generalizadas. Dezenas de milhares morreram de fome.",
+        "Os guetos serviam múltiplos propósitos: isolavam os judeus da população em geral, concentravam-nos para eventual deportação, e demonstravam que os nazis podiam eliminar os judeus gradualmente através da privação deliberada."
+      ],
+      "eyewitnessQuote": {
+        "text": "As ruas estão cheias de cadáveres. Não há madeira para caixões. Os corpos são embrulhados em papel. Todos os dias uma carroça passa para recolher os corpos.",
+        "attribution": "Emanuel Ringelblum"
+      },
+      "whyThisMatters": "A desumanização gradual prepara as populações para o assassínio em massa. Quando os campos da morte abriram, milhões já tinham sido reduzidos a um estado de desamparo.",
+      "relatedEvents": [
+        { "id": "war-begins-1939", "label": "Início da Segunda Guerra Mundial" },
+        { "id": "operation-barbarossa-1941", "label": "Operação Barbarossa" }
+      ]
+    },
+    "operation-barbarossa-1941": {
+      "month": "Junho",
+      "title": "Operação Barbarossa",
+      "subtitle": "A Alemanha invade a União Soviética",
+      "keyFacts": [
+        { "symbol": "✕", "text": "1,5 milhões de judeus assassinados pelos Einsatzgruppen" },
+        { "symbol": "✕", "text": "Babi Yar: 33.771 mortos em 48 horas" },
+        { "symbol": "⚠", "text": "Fuzilamentos em massa considerados 'ineficientes' — novos métodos procurados" }
+      ],
+      "context": [
+        "A 22 de junho de 1941, a Alemanha lançou a Operação Barbarossa — a invasão da União Soviética. A seguir ao exército vieram os Einsatzgruppen: unidades móveis de extermínio encarregadas de assassinar judeus, comunistas e outros 'inimigos'.",
+        "Os Einsatzgruppen operavam com brutal eficiência. Em Babi Yar, fora de Quieve, 33.771 judeus foram fuzilados ao longo de dois dias em setembro de 1941. Massacres semelhantes ocorreram em todo o território ocupado.",
+        "No final de 1941, os Einsatzgruppen tinham assassinado aproximadamente 1,5 milhões de judeus através de fuzilamentos em massa. Mas a liderança nazi estava insatisfeita — o processo era demasiado lento, demasiado visível e psicologicamente prejudicial para os assassinos. Procuraram métodos mais eficientes."
+      ],
+      "eyewitnessQuote": {
+        "text": "Vi uma coluna de pessoas a caminhar em direção à ravina. Ouvi tiros. Compreendi tudo. Peguei na mão da minha mãe e despedi-me.",
+        "attribution": "Dina Pronicheva"
+      },
+      "whyThisMatters": "A eficiência industrial foi aplicada ao assassínio. A progressão das leis discriminatórias para os fuzilamentos em massa e depois para os campos da morte mostra como o genocídio se desenvolve incrementalmente.",
+      "relatedEvents": [
+        { "id": "ghettos-1940", "label": "Criação dos Guetos" },
+        { "id": "wannsee-conference-1942", "label": "Conferência de Wannsee" }
+      ]
+    },
+    "wannsee-conference-1942": {
+      "month": "Janeiro",
+      "title": "Conferência de Wannsee",
+      "subtitle": "Burocratas planeiam a Solução Final",
+      "keyFacts": [
+        { "symbol": "◆", "text": "A reunião durou apenas 90 minutos" },
+        { "symbol": "⚖", "text": "11 milhões de judeus europeus visados para assassinato" },
+        { "symbol": "▶", "text": "Os campos da morte iniciam operação completa" }
+      ],
+      "context": [
+        "A 20 de janeiro de 1942, quinze altos funcionários nazis reuniram-se numa vila em Wannsee, um subúrbio de Berlim. Ao almoço e com cognac, coordenaram a logística do assassinato de 11 milhões de judeus europeus.",
+        "A Conferência de Wannsee não decidiu sobre o genocídio — essa decisão já tinha sido tomada. O objetivo era a coordenação: como identificar os judeus, como transportá-los, como assassiná-los eficientemente, o que fazer com as suas propriedades.",
+        "A reunião durou noventa minutos. As atas referem os judeus sendo 'evacuados' para o 'Leste' para 'trabalho'. Os eufemismos mascaravam a realidade: a construção de campos da morte em Treblinka, Sobibor, Belzec e outros já estava em curso."
+      ],
+      "eyewitnessQuote": {
+        "text": "A discussão foi calma e profissional. Havia cognac. Ninguém levantou quaisquer objeções à proposta.",
+        "attribution": "Adolf Eichmann"
+      },
+      "whyThisMatters": "O genocídio requer burocracia. O Holocausto não foi obra de loucos — foi planeado por profissionais instruídos ao almoço, com papelada e logística.",
+      "relatedEvents": [
+        { "id": "operation-barbarossa-1941", "label": "Operação Barbarossa" },
+        { "id": "death-camps-1942", "label": "Campos da Morte" }
+      ]
+    },
+    "death-camps-1942": {
+      "title": "Os Campos da Morte",
+      "subtitle": "O assassínio industrial começa",
+      "keyFacts": [
+        { "symbol": "✕", "text": "Auschwitz: Mais de 1,1 milhões de assassinados" },
+        { "symbol": "✕", "text": "Treblinka: 870.000 assassinados em 17 meses" },
+        { "symbol": "✕", "text": "Total: 6 milhões de judeus assassinados no Holocausto" }
+      ],
+      "context": [
+        "Os campos da morte representaram a culminação do antissemitismo nazi: assassínio industrializado e sistemático. Só em Auschwitz-Birkenau, mais de 1,1 milhões de pessoas foram mortas, a grande maioria judeus.",
+        "Os campos foram concebidos para a eficiência. As vítimas eram transportadas de comboio, informadas de que estavam a ser 'reassentadas', e asfixiadas nas câmaras de gás poucas horas após a chegada. Os seus corpos eram queimados; as suas cinzas usadas como fertilizante. Nada era desperdiçado.",
+        "A escala é incompreensível: seis milhões de judeus assassinados. Um terço de todos os judeus no mundo. Comunidades inteiras apagadas. Línguas, culturas e famílias destruídas para sempre."
+      ],
+      "eyewitnessQuote": {
+        "text": "Sabe o que significa sobreviver à seleção? Significa que todos à sua volta já não estão. A sua mãe, o seu pai, a sua irmã. E você foi escolhido para viver. Porquê você? Porque foi escolhido?",
+        "attribution": "Elie Wiesel"
+      },
+      "whyThisMatters": "O Holocausto foi o ponto final de um processo que começou com palavras, continuou com leis e terminou nas câmaras de gás. O caminho não era inevitável — foi escolhido a cada passo.",
+      "relatedEvents": [
+        { "id": "wannsee-conference-1942", "label": "Conferência de Wannsee" },
+        { "id": "liberation-1945", "label": "Libertação" }
+      ]
+    },
+    "liberation-1945": {
+      "title": "Libertação",
+      "subtitle": "Os campos são abertos",
+      "keyFacts": [
+        { "symbol": "✕", "text": "6 milhões de judeus assassinados" },
+        { "symbol": "✕", "text": "5 milhões de outros (Roma, deficientes, prisioneiros de guerra, presos políticos)" },
+        { "symbol": "⚠", "text": "Muitos sobreviventes morreram semanas após a libertação devido a doenças" }
+      ],
+      "context": [
+        "Entre janeiro e maio de 1945, as forças aliadas libertaram os campos de concentração e de extermínio nazis. O que encontraram desafiava a compreensão: montanhas de cadáveres, sobreviventes esqueléticos, e as provas do assassínio industrial sistemático.",
+        "O General Eisenhower ordenou que tantos soldados americanos quanto possível vissem os campos. 'Registem tudo,' disse. 'Filmem. Ouçam as testemunhas. Para que não surja a tendência de atribuir estas alegações apenas à propaganda.'",
+        "Para os sobreviventes, a libertação não foi um fim mas um começo. A maioria tinha perdido toda a família. Muitos estavam demasiado doentes para sobreviver. Aqueles que viveram enfrentaram a tarefa impossível de reconstruir as suas vidas do zero."
+      ],
+      "eyewitnessQuote": {
+        "text": "Éramos livres. Mas o que significa liberdade quando não tens família, casa, nem país? Éramos fantasmas, vagando entre os vivos.",
+        "attribution": "Primo Levi"
+      },
+      "whyThisMatters": "O Holocausto não é história antiga. Os sobreviventes ainda estão vivos. As lições são urgentes. Os sinais de aviso são reconhecíveis. Nunca devemos esquecer — e nunca devemos permitir que aconteça novamente.",
+      "relatedEvents": [
+        { "id": "death-camps-1942", "label": "Campos da Morte" }
+      ]
+    },
+    "d-day-1944": {
+      "month": "Junho",
+      "title": "Operação Overlord",
+      "subtitle": "156.000 tropas aliadas assaltam as praias da Normandia",
+      "keyFacts": [
+        { "symbol": "⚔", "text": "156.000 tropas aliadas desembarcam em cinco praias da Normandia" },
+        { "symbol": "✕", "text": "4.414 mortes aliadas confirmadas no primeiro dia" },
+        { "symbol": "⚔", "text": "Omaha Beach sofreu as maiores baixas: 2.400 homens" },
+        { "symbol": "▶", "text": "O início do fim para a Alemanha Nazi" }
+      ],
+      "context": [
+        "A 6 de junho de 1944, as forças aliadas lançaram a maior invasão anfíbia da história. A missão: libertar a Europa da ocupação nazi e alcançar os campos de concentração antes que todas as provas pudessem ser destruídas e os prisioneiros restantes assassinados.",
+        "Omaha Beach, atribuída às forças americanas, tornou-se um campo de extermínio. As defesas alemãs eram mais fortes do que esperado. Os homens afogavam-se com o peso do equipamento. Os corpos amontoavam-se na areia. Mesmo assim, avançaram.",
+        "Estes soldados sabiam que os campos de concentração existiam, embora ainda não conhecessem toda a extensão do Holocausto. Combateram para parar o fascismo. Muitos nunca viram o Dia da Libertação."
+      ],
+      "eyewitnessQuote": {
+        "text": "Estão prestes a embarcar na Grande Cruzada, para a qual temos lutado durante estes muitos meses. Os olhos do mundo estão sobre vós... Tenho plena confiança na vossa coragem, devoção ao dever e habilidade em combate. Não aceitaremos nada menos do que a Vitória total!",
+        "attribution": "General Dwight D. Eisenhower"
+      },
+      "whyThisMatters": "A libertação não foi automática nem inevitável. Foi combatida, ensanguentada, morreu-se por ela. Sem o Dia D, os campos teriam funcionado até o último prisioneiro ser assassinado. O sacrifício destes soldados tornou a justiça possível.",
+      "relatedEvents": [
+        { "id": "bergen-belsen-1945", "label": "Libertação de Bergen-Belsen" },
+        { "id": "germany-surrenders-1945", "label": "A Alemanha Rende-se" }
+      ]
+    },
+    "auschwitz-liberation-1945": {
+      "month": "Janeiro",
+      "title": "Os Soviéticos Chegam a Auschwitz",
+      "subtitle": "Tropas soviéticas encontram 7.000 sobreviventes e provas de 1,1 milhões de assassinados",
+      "keyFacts": [
+        { "symbol": "✓", "text": "Tropas soviéticas do 60.º Exército libertam o campo" },
+        { "symbol": "✕", "text": "7.000 prisioneiros encontrados vivos (a maioria demasiado fraca para celebrar)" },
+        { "symbol": "✕", "text": "600 cadáveres descobertos sem sepultura" },
+        { "symbol": "⚠", "text": "Provas encontradas: 370.000 fatos de homem, 837.000 casacos de mulher, 7 toneladas de cabelo humano" }
+      ],
+      "context": [
+        "À medida que as forças soviéticas se aproximavam, as SS destruíram freneticamente as provas e evacuaram 60.000 prisioneiros em marchas da morte para oeste. A maioria morreu no caminho.",
+        "Os demasiado doentes para se moverem foram deixados para morrer. As SS esperavam que estivessem mortos antes de chegarem os libertadores. Estavam erradas.",
+        "As tropas soviéticas encontraram armazéns cheios de pertences das vítimas. Montanhas de sapatos. Toneladas de cabelo humano (vendido a empresas alemãs para têxteis). A escala industrial do assassínio tornou-se inegável."
+      ],
+      "eyewitnessQuote": {
+        "text": "Sabíamos que algo terrível tinha acontecido, mas nada poderia ter-nos preparado. O cheiro... podia sentir-se a quilómetros de distância. E depois vimo-los — esqueletos vivos. Como se descreve o inferno a alguém que lá nunca esteve?",
+        "attribution": "Soldado soviético, 60.º Exército"
+      },
+      "whyThisMatters": "Auschwitz tornou-se o símbolo do Holocausto. Os nazis tentaram esconder as provas, mas falharam. O 27 de janeiro é agora o Dia Internacional em Memória das Vítimas do Holocausto.",
+      "relatedEvents": [
+        { "id": "bergen-belsen-1945", "label": "Libertação de Bergen-Belsen" },
+        { "id": "death-camps-1942", "label": "Campos da Morte" }
+      ]
+    },
+    "bergen-belsen-1945": {
+      "month": "Abril",
+      "title": "O Inferno na Terra",
+      "subtitle": "As forças britânicas encontram 60.000 prisioneiros, 13.000 cadáveres insepultos, e o local de repouso final de Anne Frank",
+      "keyFacts": [
+        { "symbol": "✕", "text": "60.000 prisioneiros encontrados vivos (por pouco)" },
+        { "symbol": "✕", "text": "13.000 cadáveres insepultos espalhados pelo campo" },
+        { "symbol": "✕", "text": "Anne Frank morreu aqui em março de 1945, semanas antes da libertação" },
+        { "symbol": "⚕", "text": "Epidemia de tifo — 14.000 morreram APÓS a libertação apesar dos cuidados médicos" }
+      ],
+      "context": [
+        "Em abril de 1945, Bergen-Belsen tornara-se um depósito de prisioneiros evacuados de outros campos. Originalmente concebido para 10.000, albergava 60.000 em condições inimagináveis.",
+        "Sem comida. Sem água. Sem saneamento. Doenças generalizadas. Corpos em todo o lado — os vivos demasiado fracos para enterrar os mortos.",
+        "As tropas britânicas estavam completamente despreparadas. Muitos vomitaram. Alguns choraram. Todos foram mudados para sempre."
+      ],
+      "eyewitnessQuote": {
+        "text": "Acho que nunca conseguirei esquecer as visões, os sons e os cheiros. Os vivos pareciam mortos. Mal conseguiam mover-se, mal conseguiam falar. E os mortos... montanhas de corpos. Como fazem os seres humanos isto uns aos outros?",
+        "attribution": "Tenente Derrick Sington"
+      },
+      "whyThisMatters": "O General Eisenhower ordenou que tudo fosse documentado: 'Registem tudo agora — filmem — ouçam as testemunhas — porque algures no caminho da história algum patife se levantará e dirá que isto nunca aconteceu.' Tinha razão. É por isso que a documentação importa.",
+      "relatedEvents": [
+        { "id": "auschwitz-liberation-1945", "label": "Libertação de Auschwitz" },
+        { "id": "germany-surrenders-1945", "label": "A Alemanha Rende-se" }
+      ]
+    },
+    "germany-surrenders-1945": {
+      "month": "Maio",
+      "title": "Dia da Vitória na Europa",
+      "subtitle": "A Alemanha Nazi é derrotada. A verdadeira escala do Holocausto é revelada.",
+      "keyFacts": [
+        { "symbol": "✓", "text": "A Alemanha assina a capitulação incondicional" },
+        { "symbol": "✕", "text": "Hitler suicidou-se 8 dias antes" },
+        { "symbol": "⚖", "text": "A guerra na Europa termina após 2.174 dias" },
+        { "symbol": "✕", "text": "Escala total do Holocausto emerge: 6 milhões de judeus, 5 milhões de outros" }
+      ],
+      "context": [
+        "À medida que as forças aliadas varriam a Alemanha, libertavam campo após campo. Dachau. Buchenwald. Mauthausen. Cada um revelava novos horrores.",
+        "O mundo sabia que algo terrível estava a acontecer. Mas a escala, a natureza sistemática, a eficiência industrial do genocídio — isto chocou até os soldados e jornalistas mais endurecidos.",
+        "Imagens e fotografias foram enviadas para todo o mundo. As pessoas não conseguiam acreditar. Alguns ainda não acreditam."
+      ],
+      "eyewitnessQuote": {
+        "text": "As coisas que vi desafiam a descrição... As provas visuais e o testemunho verbal de fome, crueldade e bestialidade foram tão avassaladores... Fiz a visita deliberadamente, a fim de estar em posição de dar testemunho em primeira mão destas coisas se alguma vez, no futuro, se desenvolver uma tendência para atribuir estas alegações meramente à propaganda.",
+        "attribution": "General Dwight D. Eisenhower"
+      },
+      "whyThisMatters": "A vitória sobre a Alemanha Nazi não foi apenas triunfo militar. Foi imperativo moral. O mal foi parado. Mas 11 milhões de pessoas já estavam mortas. A questão tornou-se: Como garantimos que isto nunca mais acontece?",
+      "relatedEvents": [
+        { "id": "d-day-1944", "label": "Dia D" },
+        { "id": "nuremberg-trials-1945", "label": "Julgamentos de Nuremberga" }
+      ]
+    },
+    "nuremberg-trials-1945": {
+      "month": "Novembro",
+      "title": "Justiça, Imperfeita Mas Essencial",
+      "subtitle": "22 líderes nazis são julgados. 12 condenados à morte. Milhares escapam à punição.",
+      "keyFacts": [
+        { "symbol": "⚖", "text": "22 nazis de alto escalão julgados por crimes contra a humanidade (novo conceito legal)" },
+        { "symbol": "⚖", "text": "12 condenados à morte por enforcamento" },
+        { "symbol": "⚖", "text": "3 absolvidos, 7 receberam penas de prisão" },
+        { "symbol": "⚖", "text": "'Cumprir ordens' declarado NÃO uma defesa válida" }
+      ],
+      "context": [
+        "Pela primeira vez na história, os líderes foram responsabilizados pessoalmente pelo genocídio e pelos crimes de guerra. Os julgamentos estabeleceram princípios jurídicos cruciais:",
+        "O genocídio é um crime contra a humanidade. Os funcionários governamentais não podem esconder-se atrás de 'estou apenas a cumprir ordens'. Os indivíduos são responsáveis pelas suas ações, mesmo em tempo de guerra. A guerra agressiva em si é um crime.",
+        "Mas a justiça foi incompleta. Milhares de nazis escaparam: fugiram para a América do Sul, foram protegidos durante a Guerra Fria, ou viveram vidas normais sem punição."
+      ],
+      "eyewitnessQuote": {
+        "text": "Os erros que procuramos condenar e punir foram tão calculados, tão malignos e tão devastadores, que a civilização não pode tolerar que sejam ignorados, porque não pode sobreviver à sua repetição.",
+        "attribution": "Juiz Robert Jackson"
+      },
+      "whyThisMatters": "Nuremberga criou a fundação para: a Declaração Universal dos Direitos Humanos (1948), as Convenções de Genebra (1949), o Tribunal Penal Internacional (2002). O princípio: mesmo em guerra, alguns atos são imperdoáveis. Mesmo os líderes podem ser responsabilizados.",
+      "relatedEvents": [
+        { "id": "d-day-1944", "label": "Dia D" },
+        { "id": "germany-surrenders-1945", "label": "A Alemanha Rende-se" }
+      ]
+    }
   }
 }

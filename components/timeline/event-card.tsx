@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import { TimelineEvent, getPhaseColor } from '@/lib/timeline-data';
+import { useTranslatedEvent } from '@/hooks/use-translated-event';
 import { cn } from '@/lib/utils';
 
 interface EventCardProps {
@@ -13,6 +14,7 @@ interface EventCardProps {
 
 export function EventCard({ event, index, onClick }: EventCardProps) {
   const t = useTranslations('events');
+  const translatedEvent = useTranslatedEvent(event) ?? event;
   const isLeft = index % 2 === 0;
   const phaseColor = getPhaseColor(event.phase);
 
@@ -92,10 +94,10 @@ export function EventCard({ event, index, onClick }: EventCardProps) {
                 className="text-sm uppercase tracking-[0.2em] mb-2 font-medium"
                 style={{ color: phaseColor }}
               >
-                {event.month && `${event.month} `}{event.year}
+                {translatedEvent.month && `${translatedEvent.month} `}{event.year}
               </div>
               <h3 className="font-serif text-2xl lg:text-3xl font-semibold text-[#f5f5f5] leading-tight text-balance">
-                {event.title}
+                {translatedEvent.title}
               </h3>
             </div>
 
@@ -112,7 +114,7 @@ export function EventCard({ event, index, onClick }: EventCardProps) {
 
           {/* Subtitle */}
           <p className="text-base lg:text-lg text-[#999] leading-relaxed mb-3">
-            {event.subtitle}
+            {translatedEvent.subtitle}
           </p>
 
           {/* Click indicator */}

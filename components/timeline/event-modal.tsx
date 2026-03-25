@@ -4,6 +4,7 @@ import { useCallback, useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import { TimelineEvent, getPhaseColor } from '@/lib/timeline-data';
+import { useTranslatedEvent } from '@/hooks/use-translated-event';
 import { ShareModal } from './share-modal';
 import { cn } from '@/lib/utils';
 
@@ -65,6 +66,7 @@ const FactIcons: Record<string, React.ReactNode> = {
 
 export function EventModal({ event, onClose, onNavigate }: EventModalProps) {
   const t = useTranslations('events');
+  const translatedEvent = useTranslatedEvent(event);
   const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0);
   const [isLightboxOpen, setIsLightboxOpen] = useState(false);
   const [showShareModal, setShowShareModal] = useState(false);
@@ -115,8 +117,9 @@ export function EventModal({ event, onClose, onNavigate }: EventModalProps) {
 
   if (!event) return null;
 
+  const ev = translatedEvent ?? event;
   const phaseColor = getPhaseColor(event.phase);
-  const currentPhoto = event.photos[currentPhotoIndex];
+  const currentPhoto = event.photos[currentPhotoIndex]; // photos not translated (historical captions)
 
   return (
     <AnimatePresence>
@@ -280,14 +283,14 @@ export function EventModal({ event, onClose, onNavigate }: EventModalProps) {
               <div className="max-w-4xl mx-auto px-6 py-12 lg:py-16">
                 {/* Year and Title - Enhanced font sizes */}
                 <header className="mb-12">
-                  <div 
+                  <div
                     className="text-base uppercase tracking-[0.3em] mb-3"
                     style={{ color: phaseColor }}
                   >
-                    {event.month && `${event.month} `}{event.year}
+                    {ev.month && `${ev.month} `}{event.year}
                   </div>
                   <h1 className="font-serif text-5xl lg:text-5xl font-bold text-[#f5f5f5] leading-tight mb-5 text-balance">
-                    {event.title}
+                    {ev.title}
                   </h1>
                   <div 
                     className="w-20 h-1 rounded"
@@ -301,7 +304,7 @@ export function EventModal({ event, onClose, onNavigate }: EventModalProps) {
                     {t('keyFacts')}
                   </h2>
                   <div className="grid gap-5">
-                    {event.keyFacts.map((fact, i) => (
+                    {ev.keyFacts.map((fact, i) => (
                       <div 
                         key={i}
                         className="flex items-start gap-4 text-[#e0e0e0]"
@@ -326,7 +329,7 @@ export function EventModal({ event, onClose, onNavigate }: EventModalProps) {
                     {t('historicalContext')}
                   </h2>
                   <div className="space-y-7 font-serif text-[#e0e0e0] text-base lg:text-lg tracking-wide leading-[1.9]">
-                    {event.context.map((paragraph, i) => (
+                    {ev.context.map((paragraph, i) => (
                       <p key={i}>{paragraph}</p>
                     ))}
                   </div>
@@ -349,24 +352,24 @@ export function EventModal({ event, onClose, onNavigate }: EventModalProps) {
                     </div>
                     
                     <div className="font-serif text-2xl lg:text-3xl italic text-[#e0e0e0] leading-[1.7] mb-6 pl-6 pt-4">
-                      {event.eyewitnessQuote.text}
+                      {ev.eyewitnessQuote.text}
                     </div>
-                    
+
                     {/* Large closing quote */}
-                    <div 
+                    <div
                       className="text-right text-8xl lg:text-9xl font-serif leading-none opacity-25 -mt-10"
                       style={{ color: phaseColor }}
                     >
                       {'"'}
                     </div>
-                    
+
                     <div className="text-base text-[#999] text-right mt-4">
                       <span className="font-medium text-[#ccc]">
-                        — {event.eyewitnessQuote.attribution}
+                        — {ev.eyewitnessQuote.attribution}
                       </span>
-                      {event.eyewitnessQuote.source && (
+                      {ev.eyewitnessQuote.source && (
                         <span className="text-[#777] block mt-1">
-                          {event.eyewitnessQuote.source}
+                          {ev.eyewitnessQuote.source}
                         </span>
                       )}
                     </div>
@@ -397,7 +400,7 @@ export function EventModal({ event, onClose, onNavigate }: EventModalProps) {
                           {t('whyThisMatters')}
                         </h3>
                         <p className="text-[#e0e0e0] leading-[1.8] text-base lg:text-lg">
-                          {event.whyThisMatters}
+                          {ev.whyThisMatters}
                         </p>
                       </div>
                     </div>
@@ -405,13 +408,13 @@ export function EventModal({ event, onClose, onNavigate }: EventModalProps) {
                 </div>
 
                 {/* Related Events */}
-                {event.relatedEvents.length > 0 && (
+                {ev.relatedEvents.length > 0 && (
                   <div className="mb-10">
                     <h2 className="text-xs uppercase tracking-[0.2em] text-[#666] mb-4">
                       {t('relatedEvents')}
                     </h2>
                     <div className="flex flex-wrap gap-2">
-                      {event.relatedEvents.map((related) => (
+                      {ev.relatedEvents.map((related) => (
                         <button
                           key={related.id}
                           onClick={() => onNavigate(related.id)}
@@ -433,7 +436,7 @@ export function EventModal({ event, onClose, onNavigate }: EventModalProps) {
                     <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
                     </svg>
-                    Share this event
+                    {t('shareEvent')}
                   </button>
                 </div>
               </div>

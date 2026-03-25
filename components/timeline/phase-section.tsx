@@ -66,7 +66,7 @@ export function PhaseSection({ phase }: PhaseSectionProps) {
           className="text-lg max-w-lg mx-auto leading-relaxed"
           style={{ color: mutedTextColor }}
         >
-          {info.description}
+          {t(`desc${phase}`)}
         </p>
         
         {/* Decorative elements */}

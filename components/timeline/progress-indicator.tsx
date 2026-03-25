@@ -53,7 +53,7 @@ export function ProgressIndicator({ currentYear, currentPhase, currentEvent }: P
                 animate={{ opacity: 1 }}
                 className="text-xs uppercase tracking-wider text-white/70 font-medium"
               >
-                Phase {currentPhase} {t('ofFour')}
+                {t('label')} {currentPhase} {t('ofFour')}
               </motion.div>
               <motion.div 
                 key={phase.name}

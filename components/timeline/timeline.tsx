@@ -4,6 +4,7 @@ import { useState, useCallback, useEffect, useRef } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { timelineEvents, Phase, getPhaseForYear, TimelineEvent } from '@/lib/timeline-data';
+import { useLanguage } from '@/components/language-provider';
 import { EventCard } from './event-card';
 import { EventModal } from './event-modal';
 import { PhaseSection } from './phase-section';
@@ -25,6 +26,7 @@ const phase4Events = timelineEvents.filter((e) => e.phase === 4);
 export function Timeline() {
   const router = useRouter();
   const searchParams = useSearchParams();
+  const { setLocale } = useLanguage();
   const [selectedEvent, setSelectedEvent] = useState<TimelineEvent | null>(null);
   const [currentYear, setCurrentYear] = useState(1918);
   const [currentPhase, setCurrentPhase] = useState<Phase>(1);
@@ -51,7 +53,7 @@ export function Timeline() {
   const handleLanguageChange = (lang: Language) => {
     setLanguage(lang);
     localStorage.setItem('selected-language', lang);
-    console.log('Language changed to:', lang);
+    setLocale(lang === 'PT' ? 'pt' : 'en');
   };
 
   const handleAcceptWarning = () => {

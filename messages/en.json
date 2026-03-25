@@ -13,11 +13,16 @@
     "scrollToBegin": "Scroll to Begin"
   },
   "phases": {
+    "label": "Phase",
     "phase1": "The Seeds of Hatred",
     "phase2": "The Persecution",
     "phase3": "The Genocide",
     "phase4": "Liberation & Justice",
-    "ofFour": "of 4"
+    "ofFour": "of 4",
+    "desc1": "Economic collapse, political instability, and the rise of extremism",
+    "desc2": "Systematic stripping of rights, persecution, and the machinery of oppression",
+    "desc3": "The industrial murder of six million Jews and millions of others",
+    "desc4": "The fall of the Nazi regime, liberation of survivors, and pursuit of justice"
   },
   "events": {
     "clickToExplore": "Click to explore",

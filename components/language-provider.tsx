@@ -24,10 +24,9 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    const saved = localStorage.getItem('locale') as Locale;
-    if (saved === 'en' || saved === 'pt') {
-      setLocaleState(saved);
-    }
+    // Read from the same key the LanguageSelector uses
+    const saved = localStorage.getItem('selected-language');
+    if (saved === 'PT') setLocaleState('pt');
     setMounted(true);
   }, []);
 
