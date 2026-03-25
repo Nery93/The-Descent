@@ -40,7 +40,7 @@ export function Timeline() {
 
   // Check localStorage on mount
   useEffect(() => {
-    const seen = localStorage.getItem('content-warning-seen');
+    const seen = sessionStorage.getItem('content-warning-seen');
     if (seen) {
       setWarningAccepted(true);
     } else {
@@ -59,7 +59,7 @@ export function Timeline() {
   };
 
   const handleAcceptWarning = () => {
-    localStorage.setItem('content-warning-seen', 'true');
+    sessionStorage.setItem('content-warning-seen', 'true');
     setWarningVisible(false);
     // Small delay so the fade-out animation completes before stats start
     setTimeout(() => setWarningAccepted(true), 800);
