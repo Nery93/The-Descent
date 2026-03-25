@@ -150,26 +150,6 @@ Every photograph is credited in the modal where it appears.
 
 ---
 
-## Deployment
-
-```bash
-npm run build
-npx vercel --prod
-```
-
-Recommended: Vercel + Cloudflare (DDoS protection — Holocaust memorial sites can attract targeted harassment).
-
----
-
-## Roadmap
-
-- [ ] "Faces" section — individual stories (Anne Frank, Sophie Scholl...)
-- [ ] "Today" section — modern genocide warning signs
-- [ ] Teacher resources — lesson plans, discussion guides
-- [ ] Deportation routes on map
-
----
-
 ## License
 
 Educational and non-commercial use only.
