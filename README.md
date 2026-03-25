@@ -21,46 +21,46 @@ This is not a commercial project. It is a memorial.
 
 ## What It Does
 
-### Homepage
-- Animated statistics: **6,000,000** Jews murdered · **27** years · **22** key events
+### Hero Section
+- Animated statistics: **6,000,000** Jews murdered · **27** years · **17** key events
 - Historical photo with parallax and Ken Burns effect
 - Film grain and vignette for a somber, cinematic tone
 
 ### Interactive Timeline
-22 documented events across 4 phases, in a fishbone/alternating layout:
+17 documented events across 4 phases, in a fishbone/alternating layout:
 
 | Phase | Period | Color | Events |
 |-------|--------|-------|--------|
-| 1 — The Seeds of Hatred | 1918–1933 | Desaturated blue | 5 |
-| 2 — The Persecution | 1933–1939 | Deep red | 6 |
-| 3 — The Genocide | 1939–1945 | Near black | 6 |
-| 4 — Liberation & Justice | 1944–1946 | Steel gray | 5 |
+| 1 — The Seeds of Hatred | 1918–1933 | Desaturated blue | 6 |
+| 2 — The Persecution | 1933–1939 | Deep red | 5 |
+| 3 — The Genocide | 1939–1945 | Near black | 4 |
+| 4 — Liberation & Justice | 1944–1946 | Steel gray | 4 |
 
 Each event opens a fullscreen modal with:
-- Photo gallery (historical photographs)
-- Key facts
-- Historical context
+- Photo gallery (historical photographs with source attribution)
+- Key facts and historical context
 - Eyewitness quote
 - "Why This Matters" — connecting past to present
-- Related events
+- Related events navigation
 
 ### Geography of Genocide Map
 Interactive dark map of Nazi-occupied Europe with **26 documented camps**:
 
-- 🔴 Death camps — Auschwitz, Treblinka, Bełżec, Sobibór, Chełmno
-- 🟠 Concentration camps
-- 🟡 Transit camps
-- 🟤 Labor camps
+- Death camps — Auschwitz, Treblinka, Bełżec, Sobibór, Chełmno
+- Concentration camps
+- Transit camps
+- Labor camps
 
-Circle size = death toll. Filter by type. Click for full camp details.
+Circle size proportional to death toll. Filter by type. Click for full camp details.
 
 ### Other Features
 - Scroll progress indicator (year + phase name)
 - Breadcrumb navigation
-- Sound toggle (ambient audio)
+- Ambient sound toggle (Web Audio API — no external dependency)
 - Back-to-top button
-- Share individual events
+- Bilingual: English / Portuguese (PT-BR)
 - Keyboard accessible (Tab, Enter, Esc)
+- Content warning modal on first visit
 
 ---
 
@@ -72,11 +72,11 @@ React 19          — UI framework
 TypeScript 5      — Type safety
 Tailwind CSS 4    — Styling
 Framer Motion 12  — Animations and parallax
+next-intl         — Internationalisation (EN / PT-BR)
 React Simple Maps — Geography of genocide map
-Vercel Analytics  — Usage insights (anonymous)
 ```
 
-**Fonts:** Crimson Text (headings) · Inter (UI) · Source Serif 4 (body)
+**Fonts:** Crimson Text (headings) · Inter (UI)
 
 ---
 
@@ -84,27 +84,32 @@ Vercel Analytics  — Usage insights (anonymous)
 
 ```
 /app
-  layout.tsx          — Root layout, metadata, JSON-LD SEO
-  page.tsx            — Homepage
-  globals.css         — Global styles (film grain, vignette)
-  sitemap.ts          — Dynamic sitemap
+  layout.tsx            — Root layout, metadata, JSON-LD SEO
+  page.tsx              — Homepage
+  globals.css           — Global styles (film grain, vignette)
 
 /components
   /timeline
-    timeline.tsx          — Master orchestrator
-    hero-section.tsx      — Hero with animated stats
-    event-card.tsx        — Timeline cards
-    event-modal.tsx       — Fullscreen event detail
-    genocide-map.tsx      — Interactive camps map
-    phase-section.tsx     — Phase dividers
-    progress-indicator.tsx — Scroll progress bar
-    sound-toggle.tsx      — Audio control
-    back-to-top.tsx       — Scroll button
-  Footer.tsx
+    timeline.tsx            — Master orchestrator
+    hero-section.tsx        — Hero with animated stats
+    event-card.tsx          — Timeline cards
+    event-modal.tsx         — Fullscreen event detail
+    genocide-map.tsx        — Interactive camps map
+    phase-section.tsx       — Phase dividers
+    progress-indicator.tsx  — Scroll progress bar
+    breadcrumb-nav.tsx      — Phase/event breadcrumb
+    language-selector.tsx   — EN / PT toggle
+    sound-toggle.tsx        — Ambient audio control
+    content-warning.tsx     — First-visit age/content modal
+    back-to-top.tsx         — Scroll button
 
 /lib
-  timeline-data.ts    — All 22 events (content + photos)
+  timeline-data.ts    — All 17 events (content + photos)
   camp-data.ts        — 26 camps (coordinates + data)
+
+/messages
+  en.json             — English translations
+  pt.json             — Portuguese translations
 
 /public
   /events             — Historical photographs
@@ -122,21 +127,12 @@ cd the-descent
 # Install
 npm install
 
-# Environment variables
-cp .env.example .env.local
-# Add your Mapbox token: NEXT_PUBLIC_MAPBOX_TOKEN=
-
 # Run
 npm run dev
 # → http://localhost:3000
 ```
 
-### Environment Variables
-
-| Variable | Required | Description |
-|----------|----------|-------------|
-| `NEXT_PUBLIC_MAPBOX_TOKEN` | Yes | Mapbox GL token for the genocide map |
-| `NEXT_PUBLIC_SITE_URL` | No | Your production URL |
+No environment variables required.
 
 ---
 
@@ -157,37 +153,20 @@ Every photograph is credited in the modal where it appears.
 ## Deployment
 
 ```bash
-# Build
 npm run build
-
-# Deploy to Vercel
 npx vercel --prod
 ```
 
-Recommended: Vercel + Cloudflare (DDoS protection for a site that may attract bad-faith traffic).
+Recommended: Vercel + Cloudflare (DDoS protection — Holocaust memorial sites can attract targeted harassment).
 
 ---
 
 ## Roadmap
 
-- [ ] Portuguese translation (next-intl)
-- [ ] Phase 4 content completion
 - [ ] "Faces" section — individual stories (Anne Frank, Sophie Scholl...)
-- [ ] "Today" section — modern warning signs
+- [ ] "Today" section — modern genocide warning signs
 - [ ] Teacher resources — lesson plans, discussion guides
-- [ ] WCAG AAA full audit
 - [ ] Deportation routes on map
-
----
-
-## A Note on Security
-
-Holocaust memorial sites attract targeted harassment and DDoS attacks. This project implements:
-
-- Strict Content Security Policy headers
-- Rate limiting (100 req/min per IP)
-- X-Frame-Options: DENY
-- Cloudflare recommended for production
 
 ---
 
@@ -201,10 +180,10 @@ Historical photographs belong to their respective institutions (USHMM, IWM, Bund
 
 ## Developer
 
-Built by **Nery** — junior backend Go developer from Portugal, building frontend skills one meaningful project at a time.
+Built by **Nery Silva** — junior backend Go developer from Portugal, building frontend skills one meaningful project at a time.
 
-- Email: [nery.thedescent@proton.me](mailto:nery.thedescent@proton.me)
-- LinkedIn: [linkedin.com/in/nery-silva](https://linkedin.com/in/nery-silva)
+- Email: [guilherme.rp93@hotmail.com](mailto:guilhermerp93@hotmail.com)
+- LinkedIn: [linkedin.com/in/guilhermeneryy](https://www.linkedin.com/in/guilhermeneryy/)
 
 ---
 
