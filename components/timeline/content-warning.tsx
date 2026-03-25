@@ -67,19 +67,27 @@ export function ContentWarning({ onAccept, language, onLanguageChange }: Content
 
           {/* Title */}
           <p className="text-xs uppercase tracking-[0.3em] text-[#8b1a1a] mb-4">
-            Aviso de Conteúdo
+            {language === 'EN' ? 'Content Warning' : 'Aviso de Conteúdo'}
           </p>
           <h1 className="font-serif text-2xl sm:text-3xl text-[#e8e8e8] mb-8 leading-snug">
-            Este memorial digital contém<br />conteúdo perturbador
+            {language === 'EN' ? (
+              <>This digital memorial contains<br />disturbing content</>
+            ) : (
+              <>Este memorial digital contém<br />conteúdo perturbador</>
+            )}
           </h1>
 
           {/* Warning items */}
           <div className="text-left space-y-3 mb-10 px-4">
-            {[
+            {(language === 'EN' ? [
+              'Disturbing historical images',
+              'Accounts of violence and genocide',
+              'Sensitive content about the Holocaust',
+            ] : [
               'Imagens históricas perturbadoras',
               'Relatos de violência e genocídio',
               'Conteúdo sensível sobre o Holocausto',
-            ].map((item) => (
+            ]).map((item) => (
               <div key={item} className="flex items-start gap-3">
                 <div className="flex-shrink-0 w-1 h-1 rounded-full bg-[#8b1a1a] mt-[0.45rem]" />
                 <p className="text-[#9ca3af] text-sm leading-relaxed">{item}</p>
@@ -89,9 +97,9 @@ export function ContentWarning({ onAccept, language, onLanguageChange }: Content
 
           {/* Note */}
           <p className="text-xs text-[#555] mb-10 leading-relaxed px-4">
-            Este site foi criado para educar e honrar as vítimas.
-            Abordamos este tema com o máximo respeito.
-            Recomendado para maiores de 16 anos.
+            {language === 'EN'
+              ? 'This site was created to educate and honour the victims. We approach this subject with the utmost respect. Recommended for ages 16 and above.'
+              : 'Este site foi criado para educar e honrar as vítimas. Abordamos este tema com o máximo respeito. Recomendado para maiores de 16 anos.'}
           </p>
 
           {/* Divider */}
@@ -103,13 +111,13 @@ export function ContentWarning({ onAccept, language, onLanguageChange }: Content
               onClick={onAccept}
               className="px-8 py-3 bg-[#8b1a1a]/20 border border-[#8b1a1a]/60 text-[#e8e8e8] text-sm hover:bg-[#8b1a1a]/30 hover:border-[#8b1a1a] transition-all duration-200 rounded-sm cursor-pointer"
             >
-              Entendo e desejo continuar
+              {language === 'EN' ? 'I understand and wish to continue' : 'Entendo e desejo continuar'}
             </button>
             <button
               onClick={() => window.history.back()}
               className="px-8 py-3 border border-[#333] text-[#555] text-sm hover:text-[#888] hover:border-[#444] transition-all duration-200 rounded-sm cursor-pointer"
             >
-              Sair
+              {language === 'EN' ? 'Exit' : 'Sair'}
             </button>
           </div>
         </motion.div>
