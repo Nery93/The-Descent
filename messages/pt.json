@@ -1,0 +1,56 @@
+{
+  "common": {
+    "languageName": "Português"
+  },
+  "home": {
+    "subtitle": "Um Memorial Digital",
+    "title": "A Descida",
+    "years": "1918 — 1945",
+    "description": "Das cinzas da Primeira Guerra Mundial à libertação dos campos de concentração. Uma jornada pelo capítulo mais sombrio da história humana.",
+    "jewsMurdered": "Judeus Assassinados",
+    "yearsCount": "Anos",
+    "keyEvents": "Eventos-Chave",
+    "scrollToBegin": "Role para Começar"
+  },
+  "phases": {
+    "phase1": "As Sementes do Ódio",
+    "phase2": "A Perseguição",
+    "phase3": "O Genocídio",
+    "phase4": "Libertação e Justiça",
+    "ofFour": "de 4"
+  },
+  "events": {
+    "clickToExplore": "Clique para explorar",
+    "keyFacts": "Factos-Chave",
+    "historicalContext": "Contexto Histórico",
+    "eyewitnessAccount": "Testemunho Ocular",
+    "whyThisMatters": "Porquê Isto Importa",
+    "relatedEvents": "Eventos Relacionados",
+    "shareEvent": "Partilhar este evento",
+    "viewFullscreen": "Clique para ver em ecrã completo",
+    "historicalPhotograph": "Fotografia histórica",
+    "source": "Fonte",
+    "photo": "Foto",
+    "of": "de",
+    "close": "Fechar"
+  },
+  "map": {
+    "title": "Geografia do Genocídio",
+    "subtitle": "A rede de campos na Europa ocupada",
+    "death": "Campo de Extermínio",
+    "concentration": "Campo de Concentração",
+    "transit": "Campo de Trânsito",
+    "labor": "Campo de Trabalho",
+    "victims": "vítimas",
+    "operational": "Operacional",
+    "loading": "A carregar mapa...",
+    "campDetails": "Detalhes do Campo",
+    "totalDeaths": "Total de Mortes",
+    "peakOperation": "Pico de Operação",
+    "campsShown": "Campos Mostrados"
+  },
+  "footer": {
+    "neverForget": "Nunca Esquecer. Nunca Mais.",
+    "credits": "Fotografias históricas cedidas pelo USHMM, Museu Imperial da Guerra e Wikimedia Commons (domínio público)"
+  }
+}

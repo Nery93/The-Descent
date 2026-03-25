@@ -2,6 +2,8 @@ import type { Metadata, Viewport } from 'next'
 import { Inter, Crimson_Text, Source_Serif_4 } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import Footer from '@/components/Footer'
+import { LanguageProvider } from '@/components/language-provider'
+import { LanguageSwitcher } from '@/components/language-switcher'
 import './globals.css'
 
 const inter = Inter({ 
@@ -187,8 +189,11 @@ export default function RootLayout({
         />
       </head>
       <body className={`${inter.variable} ${crimsonText.variable} ${sourceSerif.variable} font-sans antialiased bg-black text-[#e8e8e8] overflow-x-hidden`}>
-        {children}
-        <Footer />
+        <LanguageProvider>
+          {children}
+          <Footer />
+          <LanguageSwitcher />
+        </LanguageProvider>
         <Analytics />
       </body>
     </html>

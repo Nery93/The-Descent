@@ -1,0 +1,56 @@
+{
+  "common": {
+    "languageName": "English"
+  },
+  "home": {
+    "subtitle": "A Digital Memorial",
+    "title": "The Descent",
+    "years": "1918 — 1945",
+    "description": "From the ashes of World War I to the liberation of the concentration camps. A journey through the darkest chapter in human history.",
+    "jewsMurdered": "Jews Murdered",
+    "yearsCount": "Years",
+    "keyEvents": "Key Events",
+    "scrollToBegin": "Scroll to Begin"
+  },
+  "phases": {
+    "phase1": "The Seeds of Hatred",
+    "phase2": "The Persecution",
+    "phase3": "The Genocide",
+    "phase4": "Liberation & Justice",
+    "ofFour": "of 4"
+  },
+  "events": {
+    "clickToExplore": "Click to explore",
+    "keyFacts": "Key Facts",
+    "historicalContext": "Historical Context",
+    "eyewitnessAccount": "Eyewitness Account",
+    "whyThisMatters": "Why This Matters",
+    "relatedEvents": "Related Events",
+    "shareEvent": "Share this event",
+    "viewFullscreen": "Click to view in fullscreen",
+    "historicalPhotograph": "Historical photograph",
+    "source": "Source",
+    "photo": "Photo",
+    "of": "of",
+    "close": "Close"
+  },
+  "map": {
+    "title": "Geography of Genocide",
+    "subtitle": "The network of camps across occupied Europe",
+    "death": "Death Camp",
+    "concentration": "Concentration Camp",
+    "transit": "Transit Camp",
+    "labor": "Labor Camp",
+    "victims": "victims",
+    "operational": "Operational",
+    "loading": "Loading map...",
+    "campDetails": "Camp Details",
+    "totalDeaths": "Total Deaths",
+    "peakOperation": "Peak Operation",
+    "campsShown": "Camps Shown"
+  },
+  "footer": {
+    "neverForget": "Never Forget. Never Again.",
+    "credits": "Historical photographs courtesy of USHMM, Imperial War Museum, and Wikimedia Commons (public domain)"
+  }
+}

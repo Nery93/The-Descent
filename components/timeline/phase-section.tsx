@@ -2,12 +2,14 @@
 
 import { getPhaseColor, Phase, phaseInfo } from '@/lib/timeline-data';
 import { motion } from 'framer-motion';
+import { useTranslations } from 'next-intl';
 
 interface PhaseSectionProps {
   phase: Phase;
 }
 
 export function PhaseSection({ phase }: PhaseSectionProps) {
+  const t = useTranslations('phases');
   const info = phaseInfo[phase];
   const color = getPhaseColor(phase);
   
@@ -48,7 +50,7 @@ export function PhaseSection({ phase }: PhaseSectionProps) {
           className="font-serif text-3xl lg:text-5xl font-semibold mb-3"
           style={{ color: textColor }}
         >
-          {info.name}
+          {t(`phase${phase}`)}
         </h2>
         
         {/* Years */}

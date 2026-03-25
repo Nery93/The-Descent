@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useTranslations } from 'next-intl';
 import { TimelineEvent, getPhaseColor } from '@/lib/timeline-data';
 import { ShareModal } from './share-modal';
 import { cn } from '@/lib/utils';
@@ -63,6 +64,7 @@ const FactIcons: Record<string, React.ReactNode> = {
 };
 
 export function EventModal({ event, onClose, onNavigate }: EventModalProps) {
+  const t = useTranslations('events');
   const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0);
   const [isLightboxOpen, setIsLightboxOpen] = useState(false);
   const [showShareModal, setShowShareModal] = useState(false);
@@ -296,7 +298,7 @@ export function EventModal({ event, onClose, onNavigate }: EventModalProps) {
                 {/* Key Facts - Larger text */}
                 <div className="mb-12">
                   <h2 className="text-sm uppercase tracking-[0.2em] text-[#888] mb-5">
-                    Key Facts
+                    {t('keyFacts')}
                   </h2>
                   <div className="grid gap-5">
                     {event.keyFacts.map((fact, i) => (
@@ -321,7 +323,7 @@ export function EventModal({ event, onClose, onNavigate }: EventModalProps) {
                 {/* Context - Larger, more readable text */}
                 <div className="mb-12 paper-texture rounded-sm p-8 lg:p-10 bg-[#0d0d0d]">
                   <h2 className="text-sm uppercase tracking-[0.2em] text-[#888] mb-6">
-                    Historical Context
+                    {t('historicalContext')}
                   </h2>
                   <div className="space-y-7 font-serif text-[#e0e0e0] text-base lg:text-lg tracking-wide leading-[1.9]">
                     {event.context.map((paragraph, i) => (
@@ -392,7 +394,7 @@ export function EventModal({ event, onClose, onNavigate }: EventModalProps) {
                       </div>
                       <div>
                         <h3 className="text-base uppercase tracking-[0.15em] text-[#d97706] font-semibold mb-4">
-                          Why This Matters
+                          {t('whyThisMatters')}
                         </h3>
                         <p className="text-[#e0e0e0] leading-[1.8] text-base lg:text-lg">
                           {event.whyThisMatters}
@@ -406,7 +408,7 @@ export function EventModal({ event, onClose, onNavigate }: EventModalProps) {
                 {event.relatedEvents.length > 0 && (
                   <div className="mb-10">
                     <h2 className="text-xs uppercase tracking-[0.2em] text-[#666] mb-4">
-                      Related Events
+                      {t('relatedEvents')}
                     </h2>
                     <div className="flex flex-wrap gap-2">
                       {event.relatedEvents.map((related) => (

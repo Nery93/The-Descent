@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { useTranslations } from 'next-intl';
 import { TimelineEvent, getPhaseColor } from '@/lib/timeline-data';
 import { cn } from '@/lib/utils';
 
@@ -11,6 +12,7 @@ interface EventCardProps {
 }
 
 export function EventCard({ event, index, onClick }: EventCardProps) {
+  const t = useTranslations('events');
   const isLeft = index % 2 === 0;
   const phaseColor = getPhaseColor(event.phase);
 
@@ -115,7 +117,7 @@ export function EventCard({ event, index, onClick }: EventCardProps) {
 
           {/* Click indicator */}
           <div className="flex items-center gap-2 text-sm mt-4 text-[#9ca3af] group-hover:text-white transition-colors duration-200">
-            <span>Click to explore</span>
+            <span>{t('clickToExplore')}</span>
             <svg
               className="w-4 h-4 group-hover:translate-x-1 transition-transform"
               fill="none"

@@ -2,6 +2,7 @@
 
 import { getPhaseColor, Phase, phaseInfo, TimelineEvent } from '@/lib/timeline-data';
 import { motion, useScroll, useTransform } from 'framer-motion';
+import { useTranslations } from 'next-intl';
 
 interface ProgressIndicatorProps {
   currentYear: number;
@@ -10,11 +11,12 @@ interface ProgressIndicatorProps {
 }
 
 export function ProgressIndicator({ currentYear, currentPhase, currentEvent }: ProgressIndicatorProps) {
+  const t = useTranslations('phases');
   // Track window scroll - no container target needed
   const { scrollYProgress } = useScroll();
-  
+
   const progressWidth = useTransform(scrollYProgress, [0, 1], ['0%', '100%']);
-  
+
   const phaseColor = getPhaseColor(currentPhase);
   const phase = phaseInfo[currentPhase];
 
@@ -51,7 +53,7 @@ export function ProgressIndicator({ currentYear, currentPhase, currentEvent }: P
                 animate={{ opacity: 1 }}
                 className="text-xs uppercase tracking-wider text-white/70 font-medium"
               >
-                Phase {currentPhase} of 4
+                Phase {currentPhase} {t('ofFour')}
               </motion.div>
               <motion.div 
                 key={phase.name}
@@ -131,8 +133,8 @@ export function ProgressIndicator({ currentYear, currentPhase, currentEvent }: P
                   style={{
                     backgroundColor: p === currentPhase ? getPhaseColor(p) : 'transparent',
                   }}
-                  title={`Phase ${p}: ${phaseInfo[p].name}`}
-                  aria-label={`Phase ${p}: ${phaseInfo[p].name}${p === currentPhase ? ' (current)' : ''}`}
+                  title={`Phase ${p}: ${t(`phase${p}`)}`}
+                  aria-label={`Phase ${p}: ${t(`phase${p}`)}${p === currentPhase ? ' (current)' : ''}`}
                   role="img"
                 />
                 {p < 4 && <div className="w-3 h-px bg-white/20" />}

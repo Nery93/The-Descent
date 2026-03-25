@@ -1,4 +1,9 @@
+'use client';
+
+import { useTranslations } from 'next-intl';
+
 export default function Footer() {
+  const t = useTranslations('footer');
   const socialLinks = [
     {
       label: 'LinkedIn',
@@ -54,10 +59,10 @@ export default function Footer() {
         {/* Memorial phrase + credits */}
         <div className="space-y-3">
           <p className="text-gray-500 italic text-sm tracking-widest">
-            Never Forget. Never Again.
+            {t('neverForget')}
           </p>
           <p className="text-gray-600 text-xs leading-relaxed">
-            Historical photographs courtesy of USHMM, Imperial War Museum, and Wikimedia Commons (public domain)
+            {t('credits')}
           </p>
         </div>
 

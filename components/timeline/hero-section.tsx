@@ -3,6 +3,7 @@
 import { useCountUp } from '@/hooks/use-count-up';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
+import { useTranslations } from 'next-intl';
 
 interface AnimatedStatProps {
   end: number;
@@ -55,6 +56,7 @@ interface HeroSectionProps {
 }
 
 export function HeroSection({ warningAccepted }: HeroSectionProps) {
+  const t = useTranslations('home');
   const ref = useRef<HTMLDivElement>(null);
   const [statsInView, setStatsInView] = useState(false);
   
@@ -168,7 +170,7 @@ export function HeroSection({ warningAccepted }: HeroSectionProps) {
           className="mb-8"
         >
           <span className="inline-block px-4 py-2 text-xs uppercase tracking-[0.3em] text-[#8b1a1a] border border-[#8b1a1a]/60 rounded-sm bg-black/30 backdrop-blur-sm">
-            A Digital Memorial
+            {t('subtitle')}
           </span>
         </motion.div>
 
@@ -179,12 +181,12 @@ export function HeroSection({ warningAccepted }: HeroSectionProps) {
           transition={{ delay: 0.4, duration: 0.8 }}
           className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-[#e8e8e8] leading-[1.1] mb-6"
         >
-          <span className="block text-balance">The Descent</span>
-          <span 
+          <span className="block text-balance">{t('title')}</span>
+          <span
             className="block text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-normal mt-2 opacity-60"
             style={{ fontVariantNumeric: 'tabular-nums' }}
           >
-            1918 — 1945
+            {t('years')}
           </span>
         </motion.h1>
 
@@ -195,8 +197,7 @@ export function HeroSection({ warningAccepted }: HeroSectionProps) {
           transition={{ delay: 0.6, duration: 0.8 }}
           className="text-lg sm:text-xl text-[#888] max-w-2xl mx-auto leading-relaxed mb-12 text-balance"
         >
-          From the ashes of World War I to the liberation of the concentration camps. 
-          A journey through the darkest chapter in human history.
+          {t('description')}
         </motion.p>
 
         {/* Animated Stats */}
@@ -208,21 +209,21 @@ export function HeroSection({ warningAccepted }: HeroSectionProps) {
         >
           <AnimatedStat
             end={6000000}
-            label="Jews Murdered"
+            label={t('jewsMurdered')}
             delay={0}
             inView={statsInView && warningAccepted}
           />
           <div className="hidden sm:block w-[3px] h-20 bg-[#333]" />
           <AnimatedStat
             end={27}
-            label="Years"
+            label={t('yearsCount')}
             delay={300}
             inView={statsInView && warningAccepted}
           />
           <div className="hidden sm:block w-[2px] h-20 bg-[#333]" />
           <AnimatedStat
             end={17}
-            label="Key Events"
+            label={t('keyEvents')}
             delay={600}
             inView={statsInView && warningAccepted}
           />
@@ -236,7 +237,7 @@ export function HeroSection({ warningAccepted }: HeroSectionProps) {
           className="flex flex-col items-center gap-2"
         >
           <span className="text-xs uppercase tracking-[0.2em] text-[#9ca3af]">
-            Scroll to begin
+            {t('scrollToBegin')}
           </span>
           <motion.div
             animate={{ y: [0, 8, 0] }}
