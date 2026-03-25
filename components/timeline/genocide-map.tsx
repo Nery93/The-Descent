@@ -22,7 +22,7 @@ import {
 } from '@/lib/camp-data';
 import { CampModal } from './camp-modal';
 
-const geoUrl = 'https://cdn.jsdelivr.net/npm/world-atlas@2/countries-50m.json';
+const geoUrl = '/countries-50m.json';
 
 // Europe bounding box for initial view
 const europeCenter: [number, number] = [15, 50];
