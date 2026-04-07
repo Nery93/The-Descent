@@ -8,7 +8,7 @@
 
 A digital memorial and interactive educational timeline documenting how democracy died and the Holocaust happened — from the ashes of World War I to the liberation of the concentration camps.
 
-**Live:** [the-descent.vercel.app](https://the-descent.vercel.app)
+**Live:** https://the-descent-psi.vercel.app
 
 ---
 
